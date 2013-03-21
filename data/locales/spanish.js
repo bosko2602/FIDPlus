@@ -1,0 +1,47 @@
+﻿// Spanish translation by jbinks
+FPLang.addLang('Spanish', 'Español',
+{
+	'Disastrous':			'Desastroso',
+	'Useless':				'Inepto',
+	'Very Poor':			'Muy Pobre',
+	'Poor':					'Pobre',
+	'Mediocre':				'Mediocre',
+	'Means Business':		'Aceptable',
+	'Good':					'Bueno',
+	'Very Good':			'Muy Bueno',
+	'Superb':				'Excelente',
+	'Fantastic':			'Fantástico',
+	'Star Quality':			'Clase Mundial',
+	
+	skills:
+	{
+		'Acel.':		'Accel.',
+		'Agilidad':		'Agility',
+		'Equil.':		'Balance',
+		'Salto':		'Jumping',
+		'Velocidad':	'Speed',
+		'Vigor':		'Stamina',
+		'Fuerza':		'Strength',
+		'C. balón':		'Ball Cont.',
+		'Bloqueo':		'Blocking',
+		'Efecto':		'Curving',
+		'Regate':		'Dribble',
+		'P. altos':		'High Pas.',
+		'P. bajos':		'Low Pas.',
+		'Un toque':		'One touch',
+		'Entradas':		'Tackling',
+		'Anticip.':		'Anticipation',
+		'Col. def.':	'Def. Pos.',
+		'Aplomo':		'Fearl.',
+		'Col. rem.':	'Scor. Pos.',
+		'Visión':		'Vision',
+		'Cabecear':		'Heading',
+		'Puntería':		'Sh. Acc.',
+		'Fza. chut':	'Shoot. Str.',
+		'Hab. aire':	'Aerial Ab.',
+		'Manos':		'Handling',
+		'Col. port.':	'Keep. Pos.',
+		'Pase manos':	'P. w. Hands',
+		'Reflejos':		'Reflexes'
+	}
+});

@@ -1,0 +1,47 @@
+﻿// Italian translation by Zoddao
+FPLang.addLang('Italian', 'Italiano',
+{
+	'Disastrous':			'Disastroso',
+	'Useless':				'Inutile',
+	'Very Poor':			'Molto Scarso',
+	'Poor':					'Scarso',
+	'Mediocre':				'Mediocre',
+	'Means Business':		'Discreto',
+	'Good':					'Buono',
+	'Very Good':			'Molto Buono',
+	'Superb':				'Superbo',
+	'Fantastic':			'Fantastico',
+	'Star Quality':			'Stellare',
+	
+	skills:
+	{
+		'Accel.':			'Accel.',
+		'Agilità':			'Agility',
+		'Equilibrio':		'Balance',
+		'Elevaz.':			'Jumping',
+		'Velocità':			'Speed',
+		'Resistenza':		'Stamina',
+		'Forza':			'Strength',
+		'Contr. Palla':		'Ball Cont.',
+		'Blocco':			'Blocking',
+		'Effetto':			'Curving',
+		'Dribbling':		'Dribble',
+		'Pass. Alti':		'High Pas.',
+		'Pass. Bassi':		'Low Pas.',
+		'Di Prima':			'One touch',
+		'Contrasto':		'Tackling',
+		'Anticipo':			'Anticipation',
+		'Pos. Dif.':		'Def. Pos.',
+		'Coraggio':			'Fearl.',
+		'Pos. Att.':		'Scor. Pos.',
+		'Visione di Gioco':	'Vision',
+		'Testa':			'Heading',
+		'Prec. Tiro':		'Sh. Acc.',
+		'Pot. Tiro':		'Shoot. Str.',
+		'Ab. Aerea':		'Aerial Ab.',
+		'Parata':			'Handling',
+		'Pos. Portiere':	'Keep. Pos.',
+		'Pass. di Mano':	'P. w. Hands',
+		'Riflessi':			'Reflexes'
+	}
+});

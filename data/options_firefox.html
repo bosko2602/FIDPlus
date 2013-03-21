@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" media="screen" href="resources/css/options.css" />
+		<title>FidPlus Options</title>
+	</head>
+	<body>
+	
+		<div class="optionsupdated" lang-var="options_updated"></div>
+		
+		<div class="container">
+		
+			<div class="wrapper">
+		
+				<div class="navigation">
+					
+					<ul class="navigation">
+						<li class="title" lang-var="options_navigation_title"></li>
+						<li><a href="" id="main" lang-var="options_navigation_main"></a></li>
+						<li><a href="" id="tweaks" lang-var="options_navigation_tweaks"></a></li>
+						<li><a href="" id="presentation" lang-var="options_navigation_presentation"></a></li>
+						<li><a href="" id="forum" lang-var="options_navigation_forum"></a></li>
+						<!--<li><a href="" id="changelog" lang-var="options_navigation_changelog"></a></li>
+						<li><a href="" id="help" lang-var="options_navigation_help"></a></li>-->
+						<li><a href="" id="about" lang-var="options_navigation_about"></a></li>
+					</ul>
+					
+					<br />
+					
+					<input type="button" id="save" value="Save" />
+					<!--<input type="button" id="restore" value="Restore Defaults" />-->
+				
+				</div>
+				
+				<div class="body">
+				
+					<div id="sections">
+					
+						<div id="main_section">
+						
+							<h2 lang-var="options_main_heading"></h2>
+							
+							<p>
+								<h3 lang-var="options_main_enable_heading"></h3>
+								<span lang-var="options_main_enable_desc"></span> <input type="checkbox" pref="fidplusEnabled" id="fidplusEnabled" />
+							</p>
+							
+							<p>
+								<h3 lang-var="options_main_lang_heading"></h3>
+								<span lang-var="options_main_lang_desc"></span> <select pref="lang" id="lang"></select>
+							</p>
+							
+							<p>
+								<h3 lang-var="options_main_version_heading"></h3>
+								<span id="fidplusversion"></span>
+							</p>
+						
+						</div>
+						
+						<div id="tweaks_section" style="display: none"></div>
+						<div id="presentation_section" style="display: none"></div>
+						<div id="forum_section" style="display: none"></div>
+						<div id="changelog_section" style="display: none"></div>
+						<div id="help_section" style="display: none"></div>
+						
+						<div id="about_section" style="display: none">
+						
+							<h2 lang-var="options_copyright_heading"></h2>
+							
+							<p>Copyright &copy; 2010&ndash;2012, Jaanboy</p>
+							
+							<p>This program is free software: you can redistribute it and/or modify
+							it under the terms of the GNU General Public License as published by
+							the Free Software Foundation, either version 3 of the License, or
+							(at your option) any later version.</p>
+
+							<p>This program is distributed in the hope that it will be useful,
+							but WITHOUT ANY WARRANTY; without even the implied warranty of
+							MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+							GNU General Public License for more details.</p>
+
+							<p>A full copy of the GNU General Public License can be found at
+							<a href="http://www.gnu.org/licenses/gpl.html">http://www.gnu.org/licenses/gpl.html</a>.
+							</p>
+							
+							<h2 lang-var="options_about_developers"></h2>
+							
+							<p id="developers"></p>
+							
+							<h2 lang-var="options_about_translators"></h2>
+							
+							<p id="translators"></p>
+							
+							<h2 lang-var="options_about_donators"></h2>
+							
+							<p>I would like to thank the following users for their kind donations towards the fidplus project:</p>
+							
+							<p id="donators"></p>
+							
+							<p>
+								Fidplus is a completely free project, it costs nothing for me to develop or host. It does however take up time, so if you would like to show your appreciation of the project donations are very much welcomed.
+								
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+									<input type="hidden" name="cmd" value="_s-xclick">
+									<input type="hidden" name="hosted_button_id" value="E467HJ97Z7VDQ">
+									<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+									<img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+								</form>
+
+							</p>
+						
+						</div>
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		
+	</body>
+</html>
