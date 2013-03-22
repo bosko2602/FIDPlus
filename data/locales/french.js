@@ -1,17 +1,17 @@
 ﻿// French translation by RoD
 FPLang.addLang('French', 'Français',
 {
-	'Disastrous':			'Désastreux',
-	'Useless':				'Inutile',
-	'Very Poor':			'Très faible',
-	'Poor':					'Faible',
-	'Mediocre':				'Médiocre',
-	'Means Business':		'Correct',
-	'Good':					'Bon',
-	'Very Good':			'Très bon',
-	'Superb':				'Superbe',
-	'Fantastic':			'Fantastique',
-	'Star Quality':			'Qualité de Star',
+	'Disastrous': 'Disastrous',
+	'Useless': 'Useless',
+	'Very Poor':'Very Poor',
+	'Poor': 'Poor',
+	'Mediocre': 'Mediocre',
+	'Means Business': 'Means Business',
+	'Good': 'Good',
+	'Very Good': 'Very Good',
+	'Superb': 'Superb',
+	'Fantastic': 'Fantastic',
+	'Star Quality': 'Star Quality',
 	
 	skills: {
 		'Accélération':			'Accel.',
