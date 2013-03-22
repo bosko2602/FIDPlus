@@ -177,7 +177,10 @@ function initModuleSections()
 	
 	for (var i in FP.Module)
 	{
-		sections[FP.Module[i].Category].push(i);
+		if (FP.Module[i].Category)
+		{
+			sections[FP.Module[i].Category].push(i);
+		}
 	}
 	
 	for (var i in sections)

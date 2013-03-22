@@ -13,7 +13,7 @@ function runFP()
 	
 	$.each(FP.Module, function(k, module)
 	{
-		if (FPPrefs.moduleEnabled(module))
+		if (module.CoreModule || FPPrefs.moduleEnabled(module))
 		{
 			if (module.init)
 			{
