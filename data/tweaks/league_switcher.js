@@ -41,9 +41,13 @@ FP.Module.leagueSwitcher =
 			if (isTable)
 			{
 				// Gotta make some room...
-				$('td#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_EC').hide();
+				$('#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_EC').hide();
 				
-				$('table#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
+				// increase wall post colspan
+				$('#M_M_M_C_C_C_LeagueTable_wallControl_Container').parent().attr('colspan', 4);
+				
+				// add drop-downs
+				$('#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
 			}
 			else
 			{
