@@ -76,15 +76,13 @@ function initHandlers()
 		
 		// Save prefs, display notice
 		FPPrefs.save();
-		$('div.optionsupdated').toggle();
+		$('div.optionsupdated').fadeIn('slow');
 		
-		setTimeout(
-			function()
-			{
-				$('div.optionsupdated').slideToggle('slow');
-			},
-			2000
-		);
+		setTimeout(function()
+		{
+			$('div.optionsupdated').fadeOut('slow');
+			
+		}, 2000);
 	});
 }
 

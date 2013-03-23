@@ -210,6 +210,9 @@ FPLang.addLang('English', 'English',
 	'options_module_moveCharacterGuide_heading': 'Move Character Guide',
 	'options_module_moveCharacterGuide_desc': 'Moves the character guide below the statistics summary section.',
 	
+	'options_module_moveKeeperSkills_heading': 'Move Keeper Skills',
+	'options_module_moveKeeperSkills_desc': 'Moves the keeper skills to the top of your player\'s skills if they are a keeper.',
+	
 	'options_module_navigationCss_heading': 'Style Navigation Bar',
 	'options_module_navigationCss_desc': 'Improves the styling of the navigation tabs to be easier to read when hovering over a certain tab.',
 	

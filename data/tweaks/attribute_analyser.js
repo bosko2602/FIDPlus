@@ -41,7 +41,7 @@ FP.Module.attributeAnalyser =
 		// Add the canvas
 		el.append(div);
 		
-		var keeper = FP.Helper.isKeeper(skills);
+		var keeper = FP.Helper.isKeeper();
 		var canvas = $('canvas#profile');
 		
 		if (keeper)

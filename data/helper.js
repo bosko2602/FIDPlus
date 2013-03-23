@@ -116,7 +116,7 @@ FP.Helper =
 		return skills;
 	},
 	
-	isKeeper: function(skills)
+	isKeeper: function()
 	{
 		var el = $(FP.isPage('playerOwnSummary') ? '#M_M_M_C_C_C_PlayerTypeValueLabel' : '#M_M_M_C_C_C_labelCharacterTypeValue');
 		

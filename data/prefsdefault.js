@@ -82,6 +82,11 @@ FPPrefs.defaultPrefs =
 		enabled: true
 	},
 	
+	module_moveKeeperSkills:
+	{
+		enabled: true
+	},
+	
 	module_navigationLinks:
 	{
 		enabled: true
