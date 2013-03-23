@@ -1,5 +1,7 @@
 FPLang.addLang('Greek', 'ελληνικά',
 {
+	'gk_detection': 'ΤΦ',
+	
 	'Disastrous': 		'Καταστροφικός',
 	'Useless':			'Άθλιος',
 	'Very Poor':		'Πολύ Φτωχός',

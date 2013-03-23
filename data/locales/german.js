@@ -1,5 +1,7 @@
 FPLang.addLang('German', 'Deutsch',
 {
+	'gk_detection': 'TH',
+	
 	skills: {
 		'Antr.':			'Accel.',
 		'Beweg.':			'Agility',

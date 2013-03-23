@@ -24,6 +24,8 @@ FPLang.addLang('English', 'English',
 	'founded_season_x': 'Season {0}',
 	'founded_this_season': 'This Season',
 	
+	'gk_detection': 'GK',
+	
 	'league_forum': 'League Forum',
 	'league_tier': 'Tier {0}',
 	'league_transfers': 'Transfers',

@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Italian', 'Italiano',
 {
+	'gk_detection': 'PT',
+	
 	'Disastrous':			'Disastroso',
 	'Useless':				'Inutile',
 	'Very Poor':			'Molto Scarso',

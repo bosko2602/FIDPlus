@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Finnish', 'Suomi',
 {
+	'gk_detection': 'MV',
+	
 	'Disastrous':			'Katastrofaalinen',
 	'Useless':				'Hyödytön',
 	'Very Poor':			'Kehno',

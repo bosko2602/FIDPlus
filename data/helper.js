@@ -118,23 +118,9 @@ FP.Helper =
 	
 	isKeeper: function(skills)
 	{
-		var keys = ['Aerial Ab.', 'Keep. Pos.', 'Reflexes', 'Handling', 'P. w. Hands'];
-		var total = 0;
-		var skill;
+		var el = $(FP.isPage('playerOwnSummary') ? '#M_M_M_C_C_C_PlayerTypeValueLabel' : '#M_M_M_C_C_C_labelCharacterTypeValue');
 		
-		$.each(keys, function(key, val)
-		{
-			skill = skills[val];
-			
-			if (isNaN(skill) && skill.indexOf(':') != -1)
-			{
-				skill = parseFloat(skill.split(':')[1]);
-			}
-			
-			total += skill;
-		});
-		
-		return total >= 150;
+		return el.text() == FPLang.get('gk_detection');
 	},
 	
 	/*!

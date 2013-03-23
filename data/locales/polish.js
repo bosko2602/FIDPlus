@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Polish', '',
 {
+	'gk_detection': 'BR',
+	
 	'Disastrous':			'Fatalny',
 	'Useless':				'Bezużyteczny',
 	'Very Poor':			'Bardzo Słaby',

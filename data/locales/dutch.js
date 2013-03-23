@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Dutch', 'Nederlands',
 {
+	'gk_detection': 'DM',
+		
 	'Disastrous':			'Rampzalig',
 	'Useless':				'Waardeloos',
 	'Very Poor':			'Heel Slecht',

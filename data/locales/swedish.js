@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Swedish', 'Svenska',
 {
+	'gk_detection': 'MV',
+	
 	'Disastrous':			'Bedrövlig',
 	'Useless':				'Värdelös',
 	'Very Poor':			'Väldigt dålig',
