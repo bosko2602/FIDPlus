@@ -179,7 +179,6 @@ FPLang.addLang('English', 'English',
 	'options_module_extraButtons_heading': 'Player and Team Buttons',
 	'options_module_extraButtons_desc': 'Adds extra buttons to the player and team screens.',
 	'options_module_extraButtons_option_advertisement': 'Add a button to create player advertisements quickly.',
-	'options_module_extraButtons_option_fidbar': 'Fidbar button.',
 	'options_module_extraButtons_option_playerLink': 'Player link button.',
 	'options_module_extraButtons_option_teamLink': 'Team link button.',
 	

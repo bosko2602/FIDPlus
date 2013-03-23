@@ -3,7 +3,7 @@ FP.Module.extraButtons =
 	Category:	FP.moduleCategories.Presentation,
 	Name:		'extraButtons',
 	Pages:		['playerOtherSummary', 'playerOwnSummary', 'teamOtherInfo', 'teamOwnInfo', 'managerOtherSummary'],
-	Options:	['playerLink', 'teamLink', 'fidbar'],
+	Options:	['playerLink', 'teamLink'],
 	
 	run: function()
 	{
@@ -45,22 +45,6 @@ FP.Module.extraButtons =
 					});
 					
 					holder.append(adbutton);
-				}
-				
-				if (FPPrefs.moduleOptionEnabled(this, 'fidbar'))
-				{
-					var
-						playername	= $('label#M_M_M_C_ctl00_labelName').text(),
-						encoded		= window.btoa(unescape(encodeURIComponent(playerid + ',' + playername + ',' + pagetype)));
-					
-					var barbutton = $('<div>').addClass('fp-button').css('margin-left', '5px').text('Get Fidbar');
-					
-					$(barbutton).click(function()
-					{
-						window.open('http://fidbar.fixfixed.com/register?fidplus=' + encoded);
-					});
-					
-					holder.append(barbutton);
 				}
 				
 				holder.append('<br /><br />');
