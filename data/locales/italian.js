@@ -1,5 +1,4 @@
-﻿// Italian translation by Zoddao
-FPLang.addLang('Italian', 'Italiano',
+﻿FPLang.addLang('Italian', 'Italiano',
 {
 	'Disastrous':			'Disastroso',
 	'Useless':				'Inutile',

@@ -1,5 +1,4 @@
-﻿// Dutch translation by Vinity
-FPLang.addLang('Dutch', 'Nederlands',
+﻿FPLang.addLang('Dutch', 'Nederlands',
 {
 	'Disastrous':			'Rampzalig',
 	'Useless':				'Waardeloos',

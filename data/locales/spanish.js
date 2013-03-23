@@ -1,5 +1,4 @@
-﻿// Spanish translation by jbinks
-FPLang.addLang('Spanish', 'Español',
+﻿FPLang.addLang('Spanish', 'Español',
 {
 	'Disastrous':			'Desastroso',
 	'Useless':				'Inepto',

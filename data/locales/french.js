@@ -1,5 +1,4 @@
-﻿// French translation by RoD
-FPLang.addLang('French', 'Français',
+﻿FPLang.addLang('French', 'Français',
 {
 	'Disastrous': 'Disastrous',
 	'Useless': 'Useless',
