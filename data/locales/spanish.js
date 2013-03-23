@@ -12,8 +12,7 @@
 	'Fantastic':			'Fantástico',
 	'Star Quality':			'Clase Mundial',
 	
-	skills:
-	{
+	skills: {
 		'Acel.':		'Accel.',
 		'Agilidad':		'Agility',
 		'Equilibrio':	'Balance',

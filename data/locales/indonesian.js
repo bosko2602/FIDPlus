@@ -1,7 +1,6 @@
 ﻿FPLang.addLang('Indonesian', 'Indonesian',
 {
-	skills:
-	{
+	skills: {
 		'Aksel.':					'Accel.',
 		'Agil. (Kegesitan)':		'Agility',
 		'Keseimbangan':				'Balance',

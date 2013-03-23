@@ -1,17 +1,5 @@
 ﻿FPLang.addLang('French', 'Français',
 {
-	'Disastrous': 		'Disastrous',
-	'Useless':			'Useless',
-	'Very Poor':		'Very Poor',
-	'Poor':				'Poor',
-	'Mediocre':			'Mediocre',
-	'Means Business':	'Means Business',
-	'Good':				'Good',
-	'Very Good':		'Very Good',
-	'Superb':			'Superb',
-	'Fantastic':		'Fantastic',
-	'Star Quality':		'Star Quality',
-	
 	skills: {
 		'Accélération':			'Accel.',
 		'Agilité':				'Agility',

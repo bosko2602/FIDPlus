@@ -1,4 +1,4 @@
-﻿FPLang.addLang('Portuguese', 'Português Brasil',
+﻿FPLang.addLang('Portuguese (Brazil)', 'Português Brasil',
 {
 	skills:
 	{

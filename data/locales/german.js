@@ -1,19 +1,6 @@
 FPLang.addLang('German', 'Deutsch',
 {
-	'Disastrous': 		'Disastrous',
-	'Useless':			'Useless',
-	'Very Poor':		'Very Poor',
-	'Poor':				'Poor',
-	'Mediocre':			'Mediocre',
-	'Means Business':	'Means Business',
-	'Good':				'Good',
-	'Very Good':		'Very Good',
-	'Superb':			'Superb',
-	'Fantastic':		'Fantastic',
-	'Star Quality':		'Star Quality',
-	
-	skills:
-	{
+	skills: {
 		'Antr.':			'Accel.',
 		'Beweg.':			'Agility',
 		'Gleichgew.':		'Balance',
