@@ -10,7 +10,7 @@ FP.Module.leagueTransfers =
 	
 	run: function()
 	{
-		this.leagueid = $('a#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
+		this.leagueid = $('#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
 		
 		if (FP.isOwnComp())
 		{
@@ -83,7 +83,7 @@ FP.Module.leagueTransfers =
 		// Account for extra column
 		var child = FPPrefs.moduleOptionEnabled(FP.Module.leagueBadges, 'ownColumn') ? 3 : 2;
 		
-		$('tr[id *= M_M_M_C_C_C_LeagueTable_gridViewLeagueStatistics_DXDataRow] td:nth-child(' + child + ') a').each(function()
+		$('#M_M_M_C_C_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(' + child + ') a').each(function()
 		{
 			tid = $(this).attr('href').match(/id=([0-9]+)/)[1];
 			tname = $(this).text();
