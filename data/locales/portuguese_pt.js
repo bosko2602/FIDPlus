@@ -1,5 +1,7 @@
-﻿FPLang.addLang('Portuguese', 'Português Brasil',
+FPLang.addLang('Portuguese (Portugal)', 'Português Portugal',
 {
+	'gk_detection': 'PT',
+	
 	skills:
 	{
 		'Acel.':			'Accel.',

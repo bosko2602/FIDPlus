@@ -76,15 +76,13 @@ function initHandlers()
 		
 		// Save prefs, display notice
 		FPPrefs.save();
-		$('div.optionsupdated').toggle();
+		$('div.optionsupdated').fadeIn('slow');
 		
-		setTimeout(
-			function()
-			{
-				$('div.optionsupdated').slideToggle('slow');
-			},
-			2000
-		);
+		setTimeout(function()
+		{
+			$('div.optionsupdated').fadeOut('slow');
+			
+		}, 2000);
 	});
 }
 
@@ -177,7 +175,10 @@ function initModuleSections()
 	
 	for (var i in FP.Module)
 	{
-		sections[FP.Module[i].Category].push(i);
+		if (FP.Module[i].Category)
+		{
+			sections[FP.Module[i].Category].push(i);
+		}
 	}
 	
 	for (var i in sections)

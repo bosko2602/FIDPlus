@@ -12,5 +12,34 @@
 	'Fantastic':			'Fantastik',
 	'Star Quality':			'Dünya Kalitesinde',
 	
-	skills: {}
+	skills: {	
+		'Hızlanma':			'Accel.',
+		'Çeviklik':			'Agility',
+		'Denge':			'Balance',
+		'Zıplama':			'Jumping',
+		'Hız':				'Speed',
+		'Dayanıklılık':	'Stamina',
+		'Güç':				'Strength',
+		'Top Kon.':			'Ball Cont.',
+		'Bloklama':			'Blocking',
+		'Falso':			'Curving',
+		'Top Sürme':		'Dribble',
+		'Havadan Pas':		'High Pas.',
+		'Yerden Pas':		'Low Pas.',
+		'Tek Dok.':			'One touch',
+		'Top Çalma':		'Tackling',
+		'Ön Sezi':			'Anticipation',
+		'Def. Pos':			'Def. Pos.',
+		'Cesaret':			'Fearl.',
+		'Gol Poz.':			'Scor. Pos.',
+		'Görüş':			'Vision',
+		'Kafa':				'Heading',
+		'Şut Hdf.':			'Sh. Acc.',
+		'Şut Srt.':			'Shoot. Str.',
+		'Havasal Hk.':		'Aerial Ab.',
+		'Top Tutma':		'Handling',
+		'Kale. Poz.':		'Keep. Pos.',
+		'Elle Pas':			'P. w. Hands',
+		'Refleksler':		'Reflexes'
+	}
 });

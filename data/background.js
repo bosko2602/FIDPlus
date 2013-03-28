@@ -1,53 +1,66 @@
+var START_DATE = new Date;
+var START_TIME = START_DATE.getTime();
+
 FP.init();
 FPPrefs.init();
 
-// Team Training Notification
-function ttnote(id, data)
+/** Team training intervals **/
+var intervals = {};
+var lastTTs = {};
+
+if (FPPrefs.moduleEnabled('teamTrainingNotification'))
 {
-	var tt = data['date'];
+	var dates = FPPrefs.getPref('teamTrainingDate');
 	
-	console.log('TT for ' + data['name'] + ' at ' + tt);
+	for (var i in dates)
+	{
+		createInterval(i, dates[i]);
+	}
+}
+
+function createInterval(i, info)
+{
+	console.log('checking interval ' + i + ' for ' + info.name);
 	
-	if (tt != '')
+	if (info.date != '')
 	{
 		var
 			now		= new Date(),
-			tt		= tt.split('/'),
+			tt		= info.date.split('/'),
 			part2	= tt[2].split(' '),
 			ttyear	= part2[0],
 			time	= part2[1].split(':'),
 			ttdate	= new Date(ttyear, tt[1] - 1, tt[0], time[0], time[1], 0);
 		
-		if (now.getTime() >= ttdate.getTime() && now.getTime() < (ttdate.getTime() + 1800000))
+		if ((typeof lastTTs[i] == 'undefined' || lastTTs[i] < ttdate.getTime()) && ttdate.toDateString() == now.toDateString())
 		{
-			webkitNotifications.createNotification(
-				'data/resources/images/icon_48.png',
-				'FID Team Training',
-				'It is team training time for ' + data['name']
-			).show();
+			console.log('setting interval ' + i + ' for ' + info.name);
 			
-			clearInterval(intervals[id]);
-			delete intervals[id];
+			var ttTime = ttdate.getTime();
+			lastTTs[i] = ttTime;
+			
+			intervals[i] = setInterval(function()
+			{
+				console.log('run interval for ' + i);
+				
+				var now = new Date();
+				
+				if (now.getTime() >= ttTime && now.getTime() < (ttTime + 1800000))
+				{
+					console.log('show notification for ' + i);
+					
+					webkitNotifications.createNotification(
+						'data/resources/images/icon_48.png',
+						'FID Team Training',
+						'It is team training time for ' + info.name
+					).show();
+					
+					clearInterval(intervals[i]);
+					delete intervals[i];
+				}
+				
+			}, 60000);
 		}
-	}
-}
-
-if (FPPrefs.moduleEnabled('teamTrainingNotification'))
-{
-	var
-		intervals = {},
-		dates = FPPrefs.getPref('teamTrainingDate');
-	
-	for (var i in dates)
-	{
-		console.log('setting interval ' + i + ' for ' + dates[i].name);
-		
-		(function()
-		{
-			var key = i;
-			
-			intervals[i] = setInterval(function(){ ttnote(key, dates[key]); }, 60000);
-		})();
 	}
 }
 
@@ -180,6 +193,13 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse)
 		chrome.tabs.executeScript(sender.tab.id, {code: 'HideMessengerPanel();'});
 		
 		sendResponse({});
+	}
+	else if (request.type == 'resetnotification')
+	{
+		clearInterval(intervals[request.player]);
+		delete intervals[request.player];
+		
+		createInterval(request.player, request.info);
 	}
 	else
 	{

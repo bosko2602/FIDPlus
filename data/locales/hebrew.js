@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Hebrew', 'עִבְרִית',
 {
+	'gk_detection': 'שוער',
+	
 	'Disastrous':			'נוראי',
 	'Useless':				'חסר תועלת',
 	'Very Poor':			'עלוב מאוד',

@@ -125,7 +125,7 @@ FP.Module.playerComparison =
 			'finishing': finishing,
 			'keeper': keeper,
 			'language': FPLang.lang,
-			'isKeeper': FP.Helper.isKeeper(skills)
+			'isKeeper': FP.Helper.isKeeper()
 		};
 		
 		var copy = this.list.slice(0);
@@ -390,7 +390,7 @@ FP.Module.playerComparison =
 		$.centerDOMWindow();
 		
 		// Show keeper graph?
-		var keeper = FP.Helper.isKeeper(skills) && data.isKeeper == true;
+		var keeper = FP.Helper.isKeeper() && data.isKeeper == true;
 		
 		if (keeper)
 		{

@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Polish', '',
 {
+	'gk_detection': 'BR',
+	
 	'Disastrous':			'Fatalny',
 	'Useless':				'Bezużyteczny',
 	'Very Poor':			'Bardzo Słaby',
@@ -12,8 +14,7 @@
 	'Fantastic':			'Fantastyczny',
 	'Star Quality':			'Klasa Światowa',
 	
-	skills:
-	{
+	skills: {
 		'Przysp.':			'Accel.',
 		'Zwinność':			'Agility',
 		'Równow.':			'Balance',

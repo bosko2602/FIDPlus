@@ -15,7 +15,7 @@
 
 var FP =
 {
-	Version: '1.1.4',
+	Version: '1.1.7',
 	Data: {},
 	Module: {},
 	querystring: [],
@@ -173,5 +173,32 @@ var FP =
 	registerStyle: function(name, content)
 	{
 		this.styles[name] = content;
+	},
+	
+	sendMessage: function(data, callback)
+	{
+		if (typeof callback != 'function')
+		{
+			callback = function(){};
+		}
+		
+		if (FP.Browser == 'chrome')
+		{
+			chrome.extension.sendRequest(data, callback);
+		}
+		else
+		{
+			data.responseKey = Math.random().toString(36).substr(2, 5);
+			
+			self.postMessage(data);
+			
+			self.on('message', function(msg)
+			{
+				if (msg.responseKey == data.responseKey)
+				{
+					callback();
+				}
+			})
+		}
 	}
 };

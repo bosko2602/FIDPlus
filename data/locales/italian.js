@@ -1,6 +1,7 @@
-﻿// Italian translation by Zoddao
-FPLang.addLang('Italian', 'Italiano',
+﻿FPLang.addLang('Italian', 'Italiano',
 {
+	'gk_detection': 'PT',
+	
 	'Disastrous':			'Disastroso',
 	'Useless':				'Inutile',
 	'Very Poor':			'Molto Scarso',
@@ -13,8 +14,7 @@ FPLang.addLang('Italian', 'Italiano',
 	'Fantastic':			'Fantastico',
 	'Star Quality':			'Stellare',
 	
-	skills:
-	{
+	skills:	{
 		'Accel.':			'Accel.',
 		'Agilità':			'Agility',
 		'Equilibrio':		'Balance',

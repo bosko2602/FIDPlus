@@ -1,0 +1,35 @@
+FPLang.addLang('German', 'Deutsch',
+{
+	'gk_detection': 'TH',
+	
+	skills: {
+		'Antr.':			'Accel.',
+		'Beweg.':			'Agility',
+		'Gleichgew.':		'Balance',
+		'Sprung.':			'Jumping',
+		'Schnell.':			'Speed',
+		'Kond.':			'Stamina',
+		'Stärke':			'Strength',
+		'Ballkontr.':		'Ball Cont.',
+		'Blocken':			'Blocking',
+		'Flanken':			'Curving',
+		'Dribb.':			'Dribble',
+		'Hohe P.':			'High Pas.',
+		'Flache P.':		'Low Pas.',
+		'Direkt.':			'One touch',
+		'Tackling':			'Tackling',
+		'Antiz.':			'Anticipation',
+		'Def.Pos.':			'Def. Pos.',
+		'Furchtl.':			'Fearl.',
+		'Off.Pos.':			'Scor. Pos.',
+		'Spielüber.':		'Vision',
+		'Kopfball':			'Heading',
+		'Schussgen.':		'Sh. Acc.',
+		'Schusskr.':		'Shoot. Str.',
+		'Lufthoheit':		'Aerial Ab.',
+		'Handh.':			'Handling',
+		'Tor.Pos.':			'Keep. Pos.',
+		'Auswurf':			'P. w. Hands',
+		'Reflexe':			'Reflexes'
+	}
+});

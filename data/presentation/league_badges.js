@@ -23,47 +23,50 @@ FP.Module.leagueBadges =
 	
 	badges: function()
 	{
-		var rows = $('tr[id *= M_M_M_C_C_C_LeagueTable_gridViewLeagueStatistics_DXDataRow]');
+		var
+			$table = $('#M_M_M_C_C_C_LeagueTable_leagueStatisticsFull'),
+			$header = $table.find('.header2'),
+			$rows = $table.find('tr').not($header);
 		
 		if (FPPrefs.moduleOptionEnabled(this, 'ownColumn'))
 		{
 			// Add header
-			$('td#M_M_M_C_C_C_LeagueTable_gridViewLeagueStatistics_col3').after('<td class="header" style="text-align: center">Badge</td>');
+			$header.find('th:first').after('<td class="header" style="text-align: center">Badge</td>');
 			
-			$.each(rows, function()
+			$rows.each(function()
 			{
 				var
-					td = $(this).find('td:nth-child(2)'),
-					teamid = $(td).children().first().attr('href').match(/id=([0-9]+)/)[1];
+					$td = $(this).find('td:nth-child(2)'),
+					teamid = $td.children().first().attr('href').match(/id=([0-9]+)/)[1];
 				
-				td.before('<td class="fidplus-badge">' + FP.Helper.makeImage('team', teamid) + '</td>');
+				$td.before('<td class="fidplus-badge">' + FP.Helper.makeImage('team', teamid) + '</td>');
 			});
 		}
 		else
 		{
-			$(rows).each(function()
+			$rows.each(function()
 			{
-				var td = $(this).find('td:nth-child(2)');
-				$(td).attr('style', 'padding: 5px !important');
+				var $td = $(this).find('td:nth-child(2)');
+				$td.attr('style', 'padding: 5px !important');
 				
 				var
-					link		= $(td).children().first(),
-					teamid		= $(link).attr('href').match(/id=([0-9]+)/)[1];
+					$link		= $td.children().first(),
+					teamid		= $link.attr('href').match(/id=([0-9]+)/)[1];
 				
-				if ($(link).find('span#fidPlusTeamName').length == 0)
+				if ($link.find('span#fidPlusTeamName').length == 0)
 				{
-					teamname = $(link).text();
+					teamname = $link.text();
 				}
 				else
 				{
-					teamname = $(link).find('span#fidPlusTeamName').text();
+					teamname = $link.find('span#fidPlusTeamName').text();
 				}
 				
 				var
 					image = '<span id="fidplus-badge">' + FP.Helper.makeImage('team', teamid) + '&nbsp;</span>',
 					html = FP.Helper.makeTeamLink(teamid, image + '<span id="fidPlusTeamName" style="text-decoration: underline">' + teamname + '</span>');
 				
-				$(td).html(html);
+				$td.html(html);
 			});
 		}
 	}

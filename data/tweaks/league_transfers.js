@@ -10,7 +10,7 @@ FP.Module.leagueTransfers =
 	
 	run: function()
 	{
-		this.leagueid = $('a#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
+		this.leagueid = $('#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
 		
 		if (FP.isOwnComp())
 		{
@@ -37,7 +37,7 @@ FP.Module.leagueTransfers =
 		
 		el.parent().after
 		(
-			$('<td>').addClass('whiteTabItemSpace0').append('<div class="whiteTabTop"></div>').append
+			$('<td>').attr('id', 'transferstab').addClass('whiteTabItemSpace0').append('<div class="whiteTabTop"></div>').append
 			(
 				link.append
 				(
@@ -58,6 +58,12 @@ FP.Module.leagueTransfers =
 			)
 		);
 		
+		// re-align active tab img
+		var $slider = $('.whiteTabTopSlider'), $td = $slider.closest('td'), offset = $td.offset();
+		
+		$slider.css('left', offset.left + $td.width() / 2);
+		
+		
 		$('td.whiteTabDummyCell').remove();
 		
 		if (FP.pathname == FP.fidPages['compOtherTable'] || FP.pathname == FP.fidPages['compOwnTable'])
@@ -74,8 +80,8 @@ FP.Module.leagueTransfers =
 		// Sort out tabs first
 		var tableUrl = FP.isOwnComp() ? FP.fidPages['compOwnTable'] : (FP.fidPages['compOtherTable'] + '?id=' + this.leagueid);
 		
-		//$('td.whiteTabItemSpace1').attr('class', 'whiteTabItemSpace0');
-		//$('td#transferstab').attr('class', 'whiteTabItemSpace1');
+		$('td.whiteTabItemSpace1').attr('class', 'whiteTabItemSpace0');
+		$('td#transferstab').attr('class', 'whiteTabItemSpace1');
 		
 		// Get all the teams and their ids
 		teams = [], teamsList = {};
@@ -83,7 +89,7 @@ FP.Module.leagueTransfers =
 		// Account for extra column
 		var child = FPPrefs.moduleOptionEnabled(FP.Module.leagueBadges, 'ownColumn') ? 3 : 2;
 		
-		$('tr[id *= M_M_M_C_C_C_LeagueTable_gridViewLeagueStatistics_DXDataRow] td:nth-child(' + child + ') a').each(function()
+		$('#M_M_M_C_C_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(' + child + ') a').each(function()
 		{
 			tid = $(this).attr('href').match(/id=([0-9]+)/)[1];
 			tname = $(this).text();

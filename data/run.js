@@ -13,7 +13,7 @@ function runFP()
 	
 	$.each(FP.Module, function(k, module)
 	{
-		if (FPPrefs.moduleEnabled(module))
+		if (module.CoreModule || FPPrefs.moduleEnabled(module))
 		{
 			if (module.init)
 			{
@@ -157,8 +157,18 @@ function setupFP()
 	}
 	
 	var url = window.location.href;
+	var except = ['ChatBanner', 'Shared', 'FootballIdentity.aspx', 'LogOnAndPresentation'];
+	var doRun = true;
+	
+	$.each(except, function()
+	{
+		if (url.indexOf(this) != -1)
+		{
+			doRun = false;
+		}
+	});
 
-	if (url.indexOf('ChatBanner') == -1 && url.indexOf('Shared') == -1 && url.indexOf('FootballIdentity.aspx') == -1)
+	if (doRun)
 	{
 		// Chat Alerts
 		if (url.indexOf('chat.footballidentity.com') != -1)

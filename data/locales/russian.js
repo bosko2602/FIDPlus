@@ -1,5 +1,4 @@
-﻿// Russian translation by SunfoolD
-FPLang.addLang('Russian', 'Русский',
+﻿FPLang.addLang('Russian', 'Русский',
 {
 	skills: {
 		'Ускорение':			'Accel.',

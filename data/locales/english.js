@@ -24,6 +24,8 @@ FPLang.addLang('English', 'English',
 	'founded_season_x': 'Season {0}',
 	'founded_this_season': 'This Season',
 	
+	'gk_detection': 'GK',
+	
 	'league_forum': 'League Forum',
 	'league_tier': 'Tier {0}',
 	'league_transfers': 'Transfers',
@@ -179,7 +181,6 @@ FPLang.addLang('English', 'English',
 	'options_module_extraButtons_heading': 'Player and Team Buttons',
 	'options_module_extraButtons_desc': 'Adds extra buttons to the player and team screens.',
 	'options_module_extraButtons_option_advertisement': 'Add a button to create player advertisements quickly.',
-	'options_module_extraButtons_option_fidbar': 'Fidbar button.',
 	'options_module_extraButtons_option_playerLink': 'Player link button.',
 	'options_module_extraButtons_option_teamLink': 'Team link button.',
 	
@@ -208,6 +209,9 @@ FPLang.addLang('English', 'English',
 	
 	'options_module_moveCharacterGuide_heading': 'Move Character Guide',
 	'options_module_moveCharacterGuide_desc': 'Moves the character guide below the statistics summary section.',
+	
+	'options_module_moveKeeperSkills_heading': 'Move Keeper Skills',
+	'options_module_moveKeeperSkills_desc': 'Moves the keeper skills to the top of your player\'s skills if they are a keeper.',
 	
 	'options_module_navigationCss_heading': 'Style Navigation Bar',
 	'options_module_navigationCss_desc': 'Improves the styling of the navigation tabs to be easier to read when hovering over a certain tab.',
@@ -247,6 +251,9 @@ FPLang.addLang('English', 'English',
 	
 	'options_module_teamPopupLinks_heading': 'Team Popup Links',
 	'options_module_teamPopupLinks_desc': 'Shows a popup with extra links when hovering over a team link.',
+	
+	'options_module_teamTrainingNotification_heading': 'Team Training Notification',
+	'options_module_teamTrainingNotification_desc': 'Displays a popup notification at the time of your players\'s team training.',
 	
 	'options_module_teamTrainingWarning_heading': 'Team Training Warning',
 	'options_module_teamTrainingWarning_desc': 'Displays a warning on the individual training page if it is the day of your team\'s team training.',

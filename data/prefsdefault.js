@@ -79,7 +79,12 @@ FPPrefs.defaultPrefs =
 	
 	module_moveCharacterGuide:
 	{
-		enabled: false
+		enabled: true
+	},
+	
+	module_moveKeeperSkills:
+	{
+		enabled: true
 	},
 	
 	module_navigationLinks:

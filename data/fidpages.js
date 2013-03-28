@@ -41,6 +41,7 @@ FP.fidPages =
 	'teamOwnStats':			'WorldAndCompetition/TeamStatistics/TeamSpaceStatistics.aspx',
 	'teamOwnTopic':			'Team/TeamGeneral/TeamLockerRoomTeamForumTopic.aspx',
 	'teamOwnWall':			'Team/TeamGeneral/TeamSpaceWall.aspx',
+	'userOwnSpace':			'User/UserGeneral/U35.aspx',
 	'matches':				'WorldAndCompetition/StatisticsAndAwards/DailyMatches.aspx',
 	'toplists':				'WorldAndCompetition/StatisticsAndAwards/U11Users.aspx',
 	'newspapers':			'WorldAndCompetition/Newspapers/U12World.aspx',
