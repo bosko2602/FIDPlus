@@ -252,6 +252,9 @@ FPLang.addLang('English', 'English',
 	'options_module_teamPopupLinks_heading': 'Team Popup Links',
 	'options_module_teamPopupLinks_desc': 'Shows a popup with extra links when hovering over a team link.',
 	
+	'options_module_teamTrainingNotification_heading': 'Team Training Notification',
+	'options_module_teamTrainingNotification_desc': 'Displays a popup notification at the time of your players\'s team training.',
+	
 	'options_module_teamTrainingWarning_heading': 'Team Training Warning',
 	'options_module_teamTrainingWarning_desc': 'Displays a warning on the individual training page if it is the day of your team\'s team training.',
 	

@@ -37,7 +37,7 @@ FP.Module.leagueTransfers =
 		
 		el.parent().after
 		(
-			$('<td>').addClass('whiteTabItemSpace0').append('<div class="whiteTabTop"></div>').append
+			$('<td>').attr('id', 'transferstab').addClass('whiteTabItemSpace0').append('<div class="whiteTabTop"></div>').append
 			(
 				link.append
 				(
@@ -58,6 +58,12 @@ FP.Module.leagueTransfers =
 			)
 		);
 		
+		// re-align active tab img
+		var $slider = $('.whiteTabTopSlider'), $td = $slider.closest('td'), offset = $td.offset();
+		
+		$slider.css('left', offset.left + $td.width() / 2);
+		
+		
 		$('td.whiteTabDummyCell').remove();
 		
 		if (FP.pathname == FP.fidPages['compOtherTable'] || FP.pathname == FP.fidPages['compOwnTable'])
@@ -74,8 +80,8 @@ FP.Module.leagueTransfers =
 		// Sort out tabs first
 		var tableUrl = FP.isOwnComp() ? FP.fidPages['compOwnTable'] : (FP.fidPages['compOtherTable'] + '?id=' + this.leagueid);
 		
-		//$('td.whiteTabItemSpace1').attr('class', 'whiteTabItemSpace0');
-		//$('td#transferstab').attr('class', 'whiteTabItemSpace1');
+		$('td.whiteTabItemSpace1').attr('class', 'whiteTabItemSpace0');
+		$('td#transferstab').attr('class', 'whiteTabItemSpace1');
 		
 		// Get all the teams and their ids
 		teams = [], teamsList = {};
@@ -267,6 +273,6 @@ FP.Module.leagueTransfers =
 			}
 		}
 		
-		getTransfers(0);
+		//getTransfers(0);
 	}
 };
