@@ -8,24 +8,24 @@ FP.Module.navigationLinks =
 	run: function()
 	{
 		// Team shortcuts
-		$('ul.level2 td.menu-item > a[href = "/Team/TeamGeneral/U134.aspx"]').parent().parent().append(
-			this.makeLink('teamOwnSignup', FPLang.get('navigation_signup'))
-		).append(
-			this.makeLink('teamOwnForum', FPLang.get('navigation_forum'))
-		).append(
-			this.makeLink('teamOwnPlayers', FPLang.get('navigation_players'))
-		).append(
+		$('.level2Table .menu-item > a[href = "/Team/TeamGeneral/U134.aspx"]').parent().after(
 			this.makeLink('teamOwnAwards', FPLang.get('navigation_awards'))
+		).after(
+			this.makeLink('teamOwnForum', FPLang.get('navigation_forum'))
+		).after(
+			this.makeLink('teamOwnPlayers', FPLang.get('navigation_players'))
+		).after(
+			this.makeLink('teamOwnSignup', FPLang.get('navigation_signup'))
 		);
 		
-		$('a.top-menu-item[href = "/Team/TeamGeneral/U70.aspx"]').next().next().append(
-			this.makeListLink('teamOwnSignup', FPLang.get('navigation_signup'))
-		).append(
-			this.makeListLink('teamOwnForum', FPLang.get('navigation_forum'))
-		).append(
-			this.makeListLink('teamOwnPlayers', FPLang.get('navigation_players'))
-		).append(
+		$('a.top-menu-item[href = "/Team/TeamGeneral/U134.aspx"]').parent().after(
 			this.makeListLink('teamOwnAwards', FPLang.get('navigation_awards'))
+		).after(
+			this.makeListLink('teamOwnForum', FPLang.get('navigation_forum'))
+		).after(
+			this.makeListLink('teamOwnPlayers', FPLang.get('navigation_players'))
+		).after(
+			this.makeListLink('teamOwnSignup', FPLang.get('navigation_signup'))
 		);
 		
 		// League shortcuts
