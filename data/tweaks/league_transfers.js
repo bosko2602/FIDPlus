@@ -273,6 +273,6 @@ FP.Module.leagueTransfers =
 			}
 		}
 		
-		//getTransfers(0);
+		getTransfers(0);
 	}
 };
