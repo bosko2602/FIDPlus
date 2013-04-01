@@ -9,9 +9,9 @@ FP.Module.teamTrainingWarning =
 	{
 		var	
 			date	= new Date(),
-			tt		= $('label#M_M_M_C_ctl00_nextTrainingControl_ASPxCallbackPanel1_labelNextTrainingValue').text().split('/');
-			
-		if (tt[0] == date.getDate() && tt[1] == date.getMonth() + 1)
+			tt		= $('.teamTrainingDateLabel').text().split('/');
+		
+		if (parseInt(tt[0]) == date.getDate() && parseInt(tt[1]) == date.getMonth() + 1)
 		{
 			// Sort out container height
 			$('div#divBasicContentHolder').css('height', 'auto');
