@@ -28,6 +28,8 @@ var FP =
 		Tweaks: 'Tweaks'
 	},
 	
+	development: false,
+	
 	init: function(queryString, queryObject)
 	{
 		if (typeof(chrome) == 'object')
@@ -148,9 +150,12 @@ var FP =
 		return this.isPage(['compOwnAwards', 'compOwnFixtures', 'compOwnPress', 'compOwnTable']);
 	},
 	
-	log: function(module, e)
+	log: function(message)
 	{
-		console.log(e.message + ' in module ' + module.Name);
+		if (this.development)
+		{
+			console.log(message);
+		}
 	},
 	
 	playSound: function(sound)
