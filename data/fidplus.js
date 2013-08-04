@@ -15,7 +15,7 @@
 
 var FP =
 {
-	Version: '1.1.8',
+	Version: '1.1.9',
 	Data: {},
 	Module: {},
 	querystring: [],
@@ -27,6 +27,8 @@ var FP =
 		Presentation: 'Presentation',
 		Tweaks: 'Tweaks'
 	},
+	
+	development: false,
 	
 	init: function(queryString, queryObject)
 	{
@@ -148,9 +150,12 @@ var FP =
 		return this.isPage(['compOwnAwards', 'compOwnFixtures', 'compOwnPress', 'compOwnTable']);
 	},
 	
-	log: function(module, e)
+	log: function(message)
 	{
-		console.log(e.message + ' in module ' + module.Name);
+		if (this.development)
+		{
+			console.log(message);
+		}
 	},
 	
 	playSound: function(sound)

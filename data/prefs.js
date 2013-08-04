@@ -99,7 +99,7 @@ var FPPrefs =
 	
 	setPref: function(pref, value)
 	{
-		console.log('Setting pref ' + pref + ' to ' + value);
+		FP.log('Setting pref ' + pref + ' to ' + value);
 		
 		this.prefs[pref] = value;
 		

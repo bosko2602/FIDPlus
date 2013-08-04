@@ -11,7 +11,7 @@ FP.Module.teamFixtures =
 	
 	run: function()
 	{
-		this.teamname = $('label#M_M_M_C_ctl00_labelName').text();
+		this.teamname = $('#M_M_M_C_ctl00_teamNameLabel').text();
 		
 		// Bug in jQuery that can't handle brackets at the end, no choice but to give up.
 		// See: http://bugs.jquery.com/ticket/5482
@@ -61,43 +61,36 @@ FP.Module.teamFixtures =
 		}
 		else
 		{
-			var trs = $(
-				'tr[id *= M_M_M_C_C_C_LeagueFixture_fixtureGridView_DXDataRow] td a:contains("' +
-				FP.Module.teamFixtures.teamname + '")', data
-			).parent().parent();
-			
-			var trhtml = [];
-			
-			var page = $('td.dxpCtrl td:first', data).text().match(/Page ([0-9]+) of ([0-9]+)/);
+			var trs = $('#M_M_M_C_C_C_LeagueFixture_fixtureGridView_DXMainTable a:contains("' + this.teamname + '")', data).parent().parent(),
+				trhtml = [],
+				page = $('td.dxpCtrl td:first', data).text().match(/Page ([0-9]+) of ([0-9]+)/);
 			
 			trs.each(function()
 			{
-				var firstChild = $(this).children().first();
+				var $this = $(this), $childs = $this.children(), $firstChild = $childs.first();
 				
-				if (firstChild.find('img[src="/Images/View.gif"]').length == 0)
+				if ($firstChild.find('img[src="/Images/View.gif"]').length == 0)
 				{
-					var teams = $(this).children('.cellName');
+					var $teams = $childs.filter('.cellName');
 					
-					if ($(teams).first().text() == FP.Module.teamFixtures.teamname)
+					if ($teams.first().text() == FP.Module.teamFixtures.teamname)
 					{
-						var cell =  $(teams).last().find('a');
-						var where = 'H';
+						var $cell =  $teams.last().find('a'),
+							where = 'H';
 					}
 					else
 					{
-						var cell =  $(teams).first().find('a');
-						var where = 'A';
+						var $cell =  $teams.first().find('a'),
+							where = 'A';
 					}
 					
-					var opponent = $(cell).text().limit(25);
-					var teamid = $(cell).attr('href').match(/id=([0-9]+)/)[1];
-					var image = '';
+					var opponent = $cell.text().limit(25),
+						teamid = $cell.attr('href').match(/id=([0-9]+)/)[1],
+						image = '';
 					
 					if (FP.isPage('teamOwnInfo'))
 					{
-						var url = $('a', firstChild);
-						
-						image = '<td style="width: 16px; padding: 3px 5px 3px 0px">' + url.toHtml() + '</td>';
+						image = '<td style="width: 16px; padding: 3px 5px 3px 0px">' + $firstChild.find('a').toHtml() + '</td>';
 					}
 					
 					trhtml.push(
@@ -107,7 +100,7 @@ FP.Module.teamFixtures =
 					);
 				}
 				
-				lastround = $(this).children().eq(1).text();
+				lastround = $childs.eq(1).text();
 				
 				//
 				// NOTE: Try to get the 5 next matches, rather than just 1-3.

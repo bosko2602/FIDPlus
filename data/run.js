@@ -1,6 +1,6 @@
 function runFP()
 {
-	console.log('Run FP');
+	FP.log('Run FP');
 	
 	// Set up language
 	FPLang.init();
@@ -35,14 +35,14 @@ function runFP()
 					{
 						if (module.change)
 						{
-							console.log('Registering module change function for: ' + module.Name);
+							FP.log('Registering module change function for: ' + module.Name);
 							
 							changes.push(module);
 						}
 						
 						if (module.Css)
 						{
-							console.log('Registering module css for: ' + module.Name);
+							FP.log('Registering module css for: ' + module.Name);
 							
 							$.each(module.Css, function(key, file)
 							{
@@ -59,13 +59,13 @@ function runFP()
 						// Added catch so that one module breaking doesn't stop those that run after it.
 						try
 						{
-							console.log('Running module: ' + module.Name);
+							FP.log('Running module: ' + module.Name);
 							
 							module.run();
 						}
 						catch(e)
 						{
-							FP.log(module, e);
+							FP.log('Error: ' + e.message + ', in module: ' + module.Name);
 						}
 					}
 				});
