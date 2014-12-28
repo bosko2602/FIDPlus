@@ -1,7 +1,7 @@
 ﻿{
 	"manifest_version": 2,
 	"name": "FIDPlus",
-	"version": "1.1.9",
+	"version": "1.1.10",
 	"description": "Presentational and functional enhancements for the footballidentity site and forum.",
 	"update_url": "http://clients2.google.com/service/update2/crx",
 	"icons":
@@ -97,6 +97,7 @@
 		"matches": [
 			"http://footballidentity.com/*",
 			"http://www.footballidentity.com/*",
+			"http://s2.footballidentity.com/*",
 			"http://forum.footballidentity.com/*",
 			"http://chat.footballidentity.com/CuteSoft_Client/CuteChat/CuteMessenger.aspx"
 		],
@@ -112,6 +113,7 @@
 		"tabs",
 		"http://footballidentity.com/*",
 		"http://www.footballidentity.com/*",
+		"http://s2.footballidentity.com/*",
 		"http://forum.footballidentity.com/*",
 		"http://chat.footballidentity.com/CuteSoft_Client/CuteChat/CuteMessenger.aspx"
 	],

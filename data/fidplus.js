@@ -15,7 +15,7 @@
 
 var FP =
 {
-	Version: '1.1.9',
+	Version: '1.1.10',
 	Data: {},
 	Module: {},
 	querystring: [],
@@ -40,7 +40,6 @@ var FP =
 		else
 		{
 			this.Browser	= 'firefox';
-			//this.ExtDir		= 'resource://jid1-wBQ459dI4EwqHg-at-jetpack-fidplus-data/';
 			
 			self.on('message', function(message)
 			{

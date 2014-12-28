@@ -10,7 +10,7 @@ FP.Module.teamPopupLinks =
 		var count = 0, ul, teamid, link;
 		
 		// Ignore team summary tab
-		$('a.whiteTabTextLink[href *= "' + FP.fidPages['teamOtherInfo'] + '"]').attr('no-team-popup', true);
+		$('.thirdMenu_tabItem a[href *= "' + FP.fidPages['teamOtherInfo'] + '"]').attr('no-team-popup', true);
 		
 		if (FP.isForum())
 		{

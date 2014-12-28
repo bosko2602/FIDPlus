@@ -20,7 +20,7 @@ FP.Module.teamCountPlayers =
 		$.get(url, function(data)
 		{
 			// Count the number of players
-			var players = $('tr[id *= M_M_M_C_C_C_TeamPlayers_gridViewPlayersU72_DXDataRow]', data).length;
+			var players = $('tr[id *= M_C_TeamPlayers_gridViewPlayersU72_DXDataRow]', data).length;
 			
 			var html =	'<tr><td><label class="fieldName">' + FPLang.get('team_players') + '</label></td>' +
 						'<td style="text-align: right"><label>' + players + '</label></td></tr>';

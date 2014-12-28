@@ -10,7 +10,7 @@ FP.Module.leagueTransfers =
 	
 	run: function()
 	{
-		this.leagueid = $('#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
+		this.leagueid = $('#M_InfoBlockContainer_ctl00_linkTeams').attr('href').getid('league');
 		
 		if (FP.isOwnComp())
 		{
@@ -27,44 +27,21 @@ FP.Module.leagueTransfers =
 				press = FP.fidPages['compOtherPress'] + '?id=' + this.leagueid;
 		}
 		
-		var link = $('<a>').attr('href', FP.Helper.fidLink(FP.fidPages[page], params)).addClass('whiteTabTextLink').css('text-decoration', 'none');
-		var el = $('td.whiteTabItemSpace0 > a[href = "/' + press + '"]');
+		var $el = $('td.thirdMenu_tabItem > a[href = "/' + press + '"]').parent(),
+			$cell = $('<td class="thirdMenu_tabItem"></td>');
 		
-		if (el.length == 0)
-		{
-			el = $('td.whiteTabItemSpace1 > a[href = "/' + press + '"]');
-		}
-		
-		el.parent().after
-		(
-			$('<td>').attr('id', 'transferstab').addClass('whiteTabItemSpace0').append('<div class="whiteTabTop"></div>').append
-			(
-				link.append
-				(
-					$('<span>').append
-					(
-						$('<table>').attr({'cellspacing': 0, 'cellpadding': 0}).append
-						(
-							$('<tr>').append
-							(
-								$('<td>').addClass('whiteTabItem').append(link.clone().html
-								(
-									'<span class="whiteTabTextLink" title="' + FPLang.get('league_transfers') + '">' + FPLang.get('league_transfers') + '</span>'
-								))
-							)
-						)
-					)
+		var $link = $('<a>').attr('href', FP.Helper.fidLink(FP.fidPages[page], params)).append(
+				$('<div class="thirdMenu_tabItem_ImgContainer"></div>').append(
+					'<div class="thirdMenu_menuItemTabImage fid_menu_sprite_third-contracts-normal"></div>'
 				)
-			)
-		);
+			).append(
+				'<span class="thirdMenu_tabItemText">Transfers</span>'
+			);
 		
-		// re-align active tab img
-		var $slider = $('.whiteTabTopSlider'), $td = $slider.closest('td'), offset = $td.offset();
+		$cell.append($link);
 		
-		$slider.css('left', offset.left + $td.width() / 2);
-		
-		
-		$('td.whiteTabDummyCell').remove();
+		$el.after($cell);
+		$el.after($el.prev().clone());
 		
 		if (FP.pathname == FP.fidPages['compOtherTable'] || FP.pathname == FP.fidPages['compOwnTable'])
 		{
@@ -80,8 +57,10 @@ FP.Module.leagueTransfers =
 		// Sort out tabs first
 		var tableUrl = FP.isOwnComp() ? FP.fidPages['compOwnTable'] : (FP.fidPages['compOtherTable'] + '?id=' + this.leagueid);
 		
-		$('td.whiteTabItemSpace1').attr('class', 'whiteTabItemSpace0');
-		$('td#transferstab').attr('class', 'whiteTabItemSpace1');
+		var $tabs = $('.thirdMenu_tabItem');
+		
+		$tabs.removeClass('thirdMenu_tabItem_selected');
+		$tabs.last().addClass('thirdMenu_tabItem_selected');
 		
 		// Get all the teams and their ids
 		teams = [], teamsList = {};
@@ -89,7 +68,7 @@ FP.Module.leagueTransfers =
 		// Account for extra column
 		var child = FPPrefs.moduleOptionEnabled(FP.Module.leagueBadges, 'ownColumn') ? 3 : 2;
 		
-		$('#M_M_M_C_C_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(' + child + ') a').each(function()
+		$('#M_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(' + child + ') a').each(function()
 		{
 			tid = $(this).attr('href').match(/id=([0-9]+)/)[1];
 			tname = $(this).text();
@@ -100,8 +79,8 @@ FP.Module.leagueTransfers =
 		});
 		
 		// Erase league table
-		$('div#divBasicContentHolder div#M_M_M_C_C_C_LeagueTable_Div1').remove();
-		holder = $('div#divBasicContentHolder div.baseColumn');
+		$('#M_basicContent #M_C_LeagueTable_Div1').remove();
+		holder = $('#M_basicContent .baseColumn');
 		holder.empty();
 		holder.width('100%');
 		
@@ -130,7 +109,7 @@ FP.Module.leagueTransfers =
 			
 			$.get(FP.Helper.fidLink(FP.fidPages['teamOtherContracts'], params), function(doc)
 			{
-				if ($('h2#M_M_M_C_C_C_U70TeamInfoH2', doc).length != 0)
+				if ($('h2#M_C_U70TeamInfoH2', doc).length != 0)
 				{
 					params = {cn: 1, tr: 0};
 					
@@ -148,14 +127,15 @@ FP.Module.leagueTransfers =
 		
 		function doTransfers(doc, index)
 		{
-			var thisTeam = $('label#M_M_M_C__ctl1_labelName', doc).text();
+			var thisTeam = $('#M_InfoBlockContainer_ctl00_teamNameLabel', doc).text();
 			
-			$('tr[id *= M_M_M_C_C_C_Transfers_callbackPanelU76_gridViewTransfersU76_DXDataRow]', doc).each(function()
+			$('tr[id *= M_C_Transfers_callbackPanelU76_gridViewTransfersU76_DXDataRow]', doc).each(function()
 			{
 				children = $(this).children();
 				
 				var
-					date		= children.eq(2).text().split('/'),
+					date		= children.eq(2).text().split(' ')[0],
+					dateParts	= date.slice(0, -1).split('.'),
 					link		= children.eq(5).find('a'),
 					to			= children.eq(8).find('a'),
 					toId		= to.attr('href').match(/id=([0-9]+)/)[1],
@@ -168,8 +148,8 @@ FP.Module.leagueTransfers =
 				if (!(typeof teamsList[toId] != 'undefined' && typeof teamsList[fromId] != 'undefined' && fromName == thisTeam))
 				{
 					transfers.push({
-						dateParsed:		date.join('/'),
-						timeStamp:		Date.parse(date[1] + '/' + date[0] + '/' + date[2]),
+						dateParsed:		dateParts.join('.'),
+						timeStamp:		new Date(dateParts[2], dateParts[1] - 1, dateParts[2]),
 						playerId:		link.attr('href').match(/id=([0-9]+)/)[1],
 						playerLink:		link.attr('href'),
 						playerName:		link.text(),
@@ -178,9 +158,9 @@ FP.Module.leagueTransfers =
 						toId:			toId,
 						toLink:			to.attr('href'),
 						toName:			to.text(),
-						toLeagueId:		toLeague.attr('href').match(/id=([0-9]+)/)[1],
-						toLeagueLink:	toLeague.attr('href'),
-						toLeagueName:	toLeague.text(),
+						toLeagueId:		toLeague.length && toLeague.attr('href').match(/id=([0-9]+)/)[1],
+						toLeagueLink:	toLeague.length && toLeague.attr('href'),
+						toLeagueName:	toLeague.length && toLeague.text(),
 						fromId:			fromId,
 						fromLink:		from.attr('href'),
 						fromName:		fromName,
@@ -219,8 +199,7 @@ FP.Module.leagueTransfers =
 					return b.timeStamp - a.timeStamp;
 				});
 				
-				var
-					max = 50,
+				var max = 50,
 					current = 0,
 					bgcolor = '';
 				

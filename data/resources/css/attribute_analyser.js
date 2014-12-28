@@ -12,7 +12,7 @@ FP.registerStyle('attribute_analyser', ' \
 		margin-top: 15px; \
 		position: relative; \
 		width: 186px; \
-		height: 130px; \
+		height: 150px; \
 	} \
 	\
 	div.attribute-graph-holder canvas.keeper \

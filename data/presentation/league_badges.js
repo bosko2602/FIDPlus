@@ -24,7 +24,7 @@ FP.Module.leagueBadges =
 	badges: function()
 	{
 		var
-			$table = $('#M_M_M_C_C_C_LeagueTable_leagueStatisticsFull'),
+			$table = $('#M_C_LeagueTable_leagueStatisticsFull'),
 			$header = $table.find('.header2'),
 			$rows = $table.find('tr').not($header);
 		

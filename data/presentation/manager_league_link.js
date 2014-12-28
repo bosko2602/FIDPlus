@@ -6,23 +6,22 @@ FP.Module.managerLeagueLink =
 	
 	run: function()
 	{
-		var
-			league = $('label#M_M_M_C_C_C_labelTeamCurrentLeague').text().split(' ');
+		var $league = $('#M_C_labelTeamCurrentLeague'),
+			parts = $league.text().split(' ');
 		
-		if (league != '')
+		if (parts.length > 0)
 		{
-			var
-				iso = league[2],
-				tier = league[1][0],
-				name = league[0] + ' ' + league[1][1];
+			var iso = parts[2],
+				tier = parts[1],
+				name = parts[0] + ' ' + parts[1];
 		
 			$.each(FP.Data.leagues[iso].leagues, function(id, data)
 			{
 				if (data.tier == tier && data.name == name)
 				{
-					var link = $('<a>').attr('href', FP.Helper.fidLink(FP.fidPages['compOtherTable'], id)).text(league.join(' '));
+					var link = $('<a>').attr('href', FP.Helper.fidLink(FP.fidPages['compOtherTable'], id)).text(parts.join(' '));
 					
-					$('label#M_M_M_C_C_C_labelTeamCurrentLeague').html(link);
+					$league.html(link);
 				}
 			});
 		}

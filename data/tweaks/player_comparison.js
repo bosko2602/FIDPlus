@@ -9,10 +9,10 @@ FP.Module.playerComparison =
 	run: function()
 	{
 		this.list = FPPrefs.getPref('recentChars');
-		this.playername = $('label#M_M_M_C_ctl00_labelName').text();
+		this.playername = $('#M_InfoBlockContainer_ctl00_labelName').text();
 		this.playerid = $('img.uploadPhoto').attr('src').match(/id=([0-9]+)/)[1];
-		this.playerage = $('span#M_M_M_C_C_C_labelAgeValue').text();
-		this.playervalue = $(FP.isPage('playerOwnSummary') ? 'span#M_M_M_C_C_C_TransferValueValueLabel' : 'label#M_M_M_C_C_C_labelCurrentPlayerTransferValue').text();
+		this.playerage = $('#M_C_labelAgeValue').text();
+		this.playervalue = $(FP.isPage('playerOwnSummary') ? 'span#M_C_TransferValueValueLabel' : 'label#M_C_labelCurrentPlayerTransferValue').text();
 		
 		// Get player's skills
 		var skills = FP.Helper.getSkills();
@@ -286,7 +286,7 @@ FP.Module.playerComparison =
 		var totalSkillsWidth = ((totalSkills1 - 700) / ((totalSkills1 - 700) + (totalSkills2 - 700))) * 100;
 		
 		$('div.attrholder:first', container).before(
-			$('<div>').append(
+			$('<div style="margin: 0 auto; width: 55%">').append(
 				$('<div>').css({'float': 'left', 'margin-top': '30px', 'width': '33.33%'}).append(
 					$('<img>').attr('src', FP.Helper.imageUrl('character', playerid)).css({
 						'-moz-border-radius': '5px',

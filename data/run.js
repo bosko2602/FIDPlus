@@ -87,7 +87,7 @@ function runFP()
 function siteWait()
 {
 	// This is the footer of the site, meaning the main body has loaded
-	if ($('div#M_M_M_panorama').length != 1)
+	if ($('.footer-container').length != 1)
 	{
 		setTimeout(siteWait, 25);
 		return;

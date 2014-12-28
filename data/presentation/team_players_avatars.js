@@ -22,11 +22,11 @@ FP.Module.teamPlayersAvatars =
 	
 	avatars: function()
 	{
-		var rows = $('tr[id *= M_M_M_C_C_C_TeamPlayers_gridViewPlayersU72_DXDataRow]');
+		var rows = $('tr[id *= M_C_TeamPlayers_gridViewPlayersU72_DXDataRow]');
 		
 		// Add avatar column header
 		var html = '<td class="header" id="FIDPlusAvatar" style="text-align: center; width: 50px;">' + FPLang.get('avatar') + '</td>';
-		$('td#M_M_M_C_C_C_TeamPlayers_gridViewPlayersU72_col0').after(html);
+		$('td#M_C_TeamPlayers_gridViewPlayersU72_col0').after(html);
 		
 		// Remove contract header (free up space)
 		//var remove = $('img[src="/Images/View.gif"]').length != 0;
@@ -34,7 +34,7 @@ FP.Module.teamPlayersAvatars =
 		
 		if (remove)
 		{
-			$('td#M_M_M_C_C_C_TeamPlayers_gridViewPlayersU72_DXTDGScol11').remove();
+			$('td#M_C_TeamPlayers_gridViewPlayersU72_DXTDGScol11').remove();
 		}
 		
 		var byRole, playerid, image, link, tdhtml, children;

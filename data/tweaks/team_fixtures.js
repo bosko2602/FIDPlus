@@ -11,7 +11,7 @@ FP.Module.teamFixtures =
 	
 	run: function()
 	{
-		this.teamname = $('#M_M_M_C_ctl00_teamNameLabel').text();
+		this.teamname = $('#M_InfoBlockContainer_ctl00_teamNameLabel').text();
 		
 		// Bug in jQuery that can't handle brackets at the end, no choice but to give up.
 		// See: http://bugs.jquery.com/ticket/5482
@@ -24,7 +24,7 @@ FP.Module.teamFixtures =
 			}
 			else
 			{
-				var leagueid = $('a#M_M_M_C_C_C_linkCurrentLeagueValue').attr('href').match(/id=([0-9]+)/)[1],
+				var leagueid = $('#M_C_linkCurrentLeagueValue').attr('href').match(/id=([0-9]+)/)[1],
 					fixtureslink = FP.Helper.fidLink('compOtherFixtures', leagueid);
 			}
 			
@@ -35,7 +35,7 @@ FP.Module.teamFixtures =
 					redirects to the league table, rather than the fixtures. Therefore we perform an
 					additional check to see if this has happened, and query the correct url if so.
 				*/
-				if ($('label#M_M_M_C_C_C_LeagueTable_labelLeagueStatistics', data).text() != '')
+				if ($('label#M_C_LeagueTable_labelLeagueStatistics', data).text() != '')
 				{
 					$.get(FP.Helper.fidLink('compOwnFixtures'), function(data)
 					{
@@ -61,7 +61,7 @@ FP.Module.teamFixtures =
 		}
 		else
 		{
-			var trs = $('#M_M_M_C_C_C_LeagueFixture_fixtureGridView_DXMainTable a:contains("' + this.teamname + '")', data).parent().parent(),
+			var trs = $('#M_C_LeagueFixture_fixtureGridView_DXMainTable a:contains("' + this.teamname + '")', data).closest('tr'),
 				trhtml = [],
 				page = $('td.dxpCtrl td:first', data).text().match(/Page ([0-9]+) of ([0-9]+)/);
 			
@@ -119,11 +119,11 @@ FP.Module.teamFixtures =
 	
 		if (FP.querystring == '')
 		{
-			$('h2#M_M_M_C_C_C_h2MatchesSmall').before(html);
+			$('h2#M_C_h2MatchesSmall').before(html);
 		}
 		else
 		{
-			$('label#M_M_M_C_C_C_labelResultFrom5LastMatchesSummarySmall').parent().before(html);
+			$('label#M_C_labelResultFrom5LastMatchesSummarySmall').parent().before(html);
 		}
 	}
 };

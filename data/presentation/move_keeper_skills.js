@@ -8,7 +8,7 @@ FP.Module.moveKeeperSkills =
 	{
 		if (FP.Helper.isKeeper())
 		{
-			var $container = $('#M_M_M_C_C_C_gridAttributes'), $header = $container.find('.groupRow:last');
+			var $container = $('#M_C_gridAttributes'), $header = $container.find('.groupRow:last');
 			
 			$header.add($header.nextAll()).prependTo($container);
 		}

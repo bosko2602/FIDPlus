@@ -8,15 +8,17 @@ FP.Module.attributeAnalyser =
 	
 	run: function()
 	{
-		var div = $('<div>').addClass('attribute-graph-holder');
-		div.append('<canvas id="profile"></canvas>');
+		var $div = $('<div>').addClass('attribute-graph-holder'),
+			$canvas = $('<canvas id="profile"></canvas>');
+		
+		$div.append($canvas);
 		
 		var el = '.baseColumnRightSubcolumn';
 		
 		if (FP.pathname == FP.fidPages['playerOtherSummary'])
 		{
 			el = el + 'Narrower';
-			div.width('262px');
+			$div.width('262px');
 		}
 		
 		el = $(el + ':first');
@@ -39,24 +41,23 @@ FP.Module.attributeAnalyser =
 		var skills = FP.Helper.getSkills(true);
 		
 		// Add the canvas
-		el.append(div);
+		el.append($div);
 		
 		var keeper = FP.Helper.isKeeper();
-		var canvas = $('canvas#profile');
 		
 		if (keeper)
 		{
-			canvas.addClass('keeper');
+			$canvas.addClass('keeper');
 		}
 		
-		this.draw(canvas, skills, keeper);
+		this.draw($canvas, skills, keeper);
 	},
 	
 	calc: function(angle, length)
 	{
 		// Centre coordinates
 		var cX = 93;
-		var cY = 65;
+		var cY = 75;
 		
 		// Calculate x & y coordinates
 		var angle = Math.PI * angle / 180;
@@ -77,7 +78,7 @@ FP.Module.attributeAnalyser =
 				(skills['Anticipation'] + skills['Fearl.']) / 4,
 				skills['P. w. Hands'] / 2,
 				skills['Handling'] / 2,
-				(skills['Balance'] + skills['Jumping'] + skills['Aerial Ab.']) / 6,
+				skills['Aerial Ab.'] / 2,
 				skills['Reflexes'] / 2,
 			];
 		}

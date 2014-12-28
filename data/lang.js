@@ -7,7 +7,7 @@
 	{
 		//if (FPPrefs.getPref('lang') == '' && FP.isFid())
 		//{
-			var fidlang = $.trim($('ul.settings-menu span.top-menu-item').text().split(':')[1]);
+			var fidlang = $.trim($('ul.settings-menu span.top-menu-item:first').text().split(':')[1]);
 			var lang = typeof this.vars[fidlang] == 'undefined' ? 'English' : fidlang;
 			
 			//FPPrefs.setPref('lang', lang);

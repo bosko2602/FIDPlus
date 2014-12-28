@@ -6,9 +6,8 @@ FP.Module.teamFounded =
 	
 	run: function()
 	{
-		var
-			ownTeam	= FP.pathname == FP.fidPages['teamOwnInfo'],
-			teamid	= $('img#M_M_M_C__ctl1_infoBlockPhoto').attr('src').match(/id=([0-9]+)/)[1];
+		var ownTeam	= FP.pathname == FP.fidPages['teamOwnInfo'],
+			teamid	= $('img#M_InfoBlockContainer_ctl00_infoBlockPhoto').attr('src').match(/id=([0-9]+)/)[1];
 		
 		if (ownTeam)
 		{
@@ -23,13 +22,13 @@ FP.Module.teamFounded =
 		
 		$.get(url, function(doc)
 		{
-			var rows = $('tr[id *= M_M_M_C_C_C_Statistics_gridTeamStatisticsPerSeason_DXDataRow]', doc);
+			var rows = $('tr[id *= M_C_Statistics_gridTeamStatisticsPerSeason_DXDataRow]', doc);
 			
 			if (rows.length > 0)
 			{
 				rows.each(function()
 				{
-					var season = $(this).find('td:nth-child(2)').text();
+					var season = $(this).find('> td:nth-child(2)').text();
 					
 					if (season > prev)
 					{
@@ -40,8 +39,7 @@ FP.Module.teamFounded =
 				});
 			}
 			
-			var
-				element = ownTeam ? $('label#M_M_M_C_C_C_lblLeaguePos') : $('label#M_M_M_C_C_C_labelCurrentLeaguePosition'),
+			var element = ownTeam ? $('label#M_C_lblLeaguePos') : $('label#M_C_labelCurrentLeaguePositionValue'),
 				founded = seasons.length == 0 ? FPLang.get('founded_this_season') : FPLang.get('founded_season_x').format(seasons[0]);
 			
 			element.parent().parent().after(

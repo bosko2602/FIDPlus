@@ -60,7 +60,7 @@ FP.Helper =
 		
 		if (FP.isPage('playerOwnSummary'))
 		{
-			$('table#M_M_M_C_C_C_gridAttributes tr[class != "groupRow"]').each(function()
+			$('table#M_C_gridAttributes tr[class != "groupRow"]').each(function()
 			{
 				var children = $(this).children();
 				
@@ -79,7 +79,7 @@ FP.Helper =
 		}
 		else
 		{
-			$('table#M_M_M_C_C_C_gridViewAttributeLevels_DXMainTable tr[id *= "M_M_M_C_C_C_gridViewAttributeLevels_DXDataRow"]').each(function()
+			$('table#M_C_gridViewAttributeLevels_DXMainTable tr[id *= "M_C_gridViewAttributeLevels_DXDataRow"]').each(function()
 			{
 				var children = $(this).children();
 				
@@ -118,9 +118,7 @@ FP.Helper =
 	
 	isKeeper: function()
 	{
-		var el = $(FP.isPage('playerOwnSummary') ? '#M_M_M_C_C_C_PlayerTypeValueLabel' : '#M_M_M_C_C_C_labelCharacterTypeValue');
-		
-		return el.text() == FPLang.get('gk_detection');
+		return this.playerPos() == FPLang.get('gk_detection');
 	},
 	
 	/*!
@@ -220,7 +218,7 @@ FP.Helper =
 	
 	playerPos: function()
 	{
-		return $(FP.pathname == FP.fidPages['playerOwnSummary'] ? '#M_M_M_C_C_C_PlayerTypeValueLabel' : '#M_M_M_C_C_C_labelCharacterTypeValue').text();
+		return $(FP.pathname == FP.fidPages['playerOwnSummary'] ? '#M_C_PlayerTypeValueLabel' : '#M_C_labelCharacterTypeValue').text();
 	},
 	
 	skillColour: function(skill)

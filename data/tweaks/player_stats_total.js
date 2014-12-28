@@ -7,7 +7,7 @@ FP.Module.playerStatsTotal =
 	run: function()
 	{
 		var
-			rows	= $('tr[id *= M_M_M_C_C_C_Statistics_gridViewData_DXDataRow]'),
+			rows	= $('tr[id *= M_C_Statistics_gridViewData_DXDataRow]'),
 			cells	= [],
 			columns;
 		

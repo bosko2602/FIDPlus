@@ -7,8 +7,8 @@ FP.Module.leagueSwitcher =
 	run: function()
 	{
 		isTable			= FP.isPage(['compOtherTable', 'compOwnTable']);
-		this.iso		= $('.leagueInfoLabel').eq(0).text().split(' ')[2];
-		this.leagueid	= $('a#M_M_M_C_ctl00_linkTeams').attr('href').getid('league');
+		this.iso		= $('.leagueInfoLabel').last().text().split(' ')[2];
+		this.leagueid	= $('a#M_InfoBlockContainer_ctl00_linkTeams').attr('href').getid('league');
 		
 		if (typeof FP.Data.leagues[this.iso] != 'undefined')
 		{
@@ -40,18 +40,15 @@ FP.Module.leagueSwitcher =
 			
 			if (isTable)
 			{
-				// Gotta make some room...
-				$('#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_EC').hide();
-				
 				// increase wall post colspan
-				$('#M_M_M_C_C_C_LeagueTable_wallControl_Container').parent().attr('colspan', 4);
+				$('#M_C_LeagueTable_wallControl_Container').closest('td').attr('colspan', 4);
 				
 				// add drop-downs
-				$('#M_M_M_C_C_C_LeagueTable_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
+				$('#M_C_LeagueTable_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
 			}
 			else
 			{
-				$('table#M_M_M_C_C_C_LeagueFixture_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
+				$('table#M_C_LeagueFixture_comboBoxSeasons_ET').parent().after($('<td>').append(lselect)).after($('<td>').append(cselect));
 			}
 			
 			this.populate(this.iso);

@@ -67,7 +67,7 @@ FP.Module.extraButtons =
 			case FP.fidPages['teamOwnInfo']:
 			
 				var
-					teamid	= $('img#M_M_M_C_ctl00_infoBlockPhoto').attr('src').match(/id=([0-9]+)/)[1],
+					teamid	= $('#M_InfoBlockContainer_ctl00_infoBlockPhoto').attr('src').match(/id=([0-9]+)/)[1],
 					link	= $(FP.Helper.makeTeamLink(teamid)).attr('no-team-popup', true).toHtml(),
 					html	= '<div style="color: #6D6D6B; padding: 3px">' + FPLang.get('team_link') + '<br />' + link + '</div>';
 				
