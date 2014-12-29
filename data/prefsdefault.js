@@ -87,11 +87,6 @@ FPPrefs.defaultPrefs =
 		enabled: true
 	},
 	
-	module_navigationLinks:
-	{
-		enabled: true
-	},
-	
 	module_navigationCss:
 	{
 		enabled: true
