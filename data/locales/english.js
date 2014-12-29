@@ -184,6 +184,9 @@ FPLang.addLang('English', 'English',
 	'options_module_extraButtons_option_playerLink': 'Player link button.',
 	'options_module_extraButtons_option_teamLink': 'Team link button.',
 	
+	'options_module_fontChange_heading': 'Change FID website font',
+	'options_module_fontChange_desc': 'Improves the main website\'s font.',
+	
 	'options_module_forumHighlightUsers_heading': 'Highlight FidPlus Contributors',
 	'options_module_forumHighlightUsers_desc': 'Shows the fidplus icon next to fidplus developers and translators.',
 	

@@ -7,28 +7,27 @@ FPPrefs.defaultPrefs =
 	recentChars:		[],
 	teamTrainingDate: 	{},
 	
-	module_attributeAnalyser:
-	{
+	module_attributeAnalyser: {
 		enabled: true
 	},
 	
-	module_bookmarks:
-	{
+	module_bookmarks: {
 		enabled: true,
-		options: { onForum: true }
+		options: {
+			onForum: true
+		}
 	},
 	
-	module_chatAlert:
-	{
+	module_chatAlert: {
 		enabled: true,
-		options: { sound: true }
+		options: {
+			sound: true
+		}
 	},
 	
-	module_extraButtons:
-	{
+	module_extraButtons: {
 		enabled: true,
-		options:
-		{
+		options: {
 			advertisement: false,
 			fidbar: true,
 			playerLink: true,
@@ -36,124 +35,102 @@ FPPrefs.defaultPrefs =
 		}
 	},
 	
-	module_fidbar:
-	{
+	module_fontChange: {
 		enabled: true
 	},
 	
-	module_forumHighlightUsers:
-	{
+	module_forumHighlightUsers: {
 		enabled: true
 	},
 	
-	module_leagueBadges:
-	{
+	module_leagueBadges: {
 		enabled: true,
-		options: { ownColumn: true }
+		options: {
+			ownColumn: true
+		}
 	},
 	
-	module_limitTeamNames:
-	{
+	module_limitTeamNames: {
 		enabled: true
 	},
 	
-	module_leagueForum:
-	{
+	module_leagueForum: {
 		enabled: true
 	},
 	
-	module_leagueSwitcher:
-	{
+	module_leagueSwitcher: {
 		enabled: true
 	},
 	
-	module_leagueTransfers:
-	{
+	module_leagueTransfers: {
 		enabled: true
 	},
 	
-	module_managerLeagueLink:
-	{
+	module_managerLeagueLink: {
 		enabled: true
 	},
 	
-	module_moveCharacterGuide:
-	{
+	module_moveCharacterGuide: {
 		enabled: true
 	},
 	
-	module_moveKeeperSkills:
-	{
+	module_moveKeeperSkills: {
 		enabled: true
 	},
 	
-	module_navigationCss:
-	{
+	module_navigationCss: {
 		enabled: true
 	},
 	
-	module_playerComparison:
-	{
+	module_playerComparison: {
 		enabled: true
 	},
 	
-	module_playerSkillTitles:
-	{
+	module_playerSkillTitles: {
 		enabled: true
 	},
 	
-	module_playerStatsTotal:
-	{
+	module_playerStatsTotal: {
 		enabled: true
 	},
 	
-	module_qprredsJoke:
-	{
+	module_qprredsJoke: {
 		enabled: false
 	},
 	
-	module_skillColours:
-	{
+	module_skillColours: {
 		enabled: true
 	},
 	
-	module_teamCountPlayers:
-	{
+	module_teamCountPlayers: {
 		enabled: true
 	},
 	
-	module_teamFixtures:
-	{
+	module_teamFixtures: {
 		enabled: true
 	},
 	
-	module_teamFounded:
-	{
+	module_teamFounded: {
 		enabled: false
 	},
 	
-	module_teamPlayersAvatars:
-	{
+	module_teamPlayersAvatars: {
 		enabled: true
 	},
 	
-	module_teamPopupLinks:
-	{
+	module_teamPopupLinks: {
 		enabled: true
 	},
 	
-	module_teamTrainingNotification:
-	{
+	module_teamTrainingNotification: {
 		enabled: true
 	},
 	
-	module_teamTrainingWarning:
-	{
+	module_teamTrainingWarning: {
 		enabled: true
 	},
 	
-	module_sortOnline:
-	{
+	module_sortOnline: {
 		enabled: true
 	}
 };
