@@ -174,17 +174,17 @@ var FP =
 		}
 		else
 		{
-			data.responseKey = Math.random().toString(36).substr(2, 5);
-			
-			self.postMessage(data);
+			data.responseKey = Math.random().toString(36).substr(0, 15);
 			
 			self.on('message', function(msg)
 			{
 				if (msg.responseKey == data.responseKey)
 				{
-					callback();
+					callback(msg);
 				}
-			})
+			});
+			
+			self.postMessage(data);
 		}
 	}
 };
