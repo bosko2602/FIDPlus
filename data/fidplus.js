@@ -94,14 +94,6 @@ var FP =
 		}
 	},
 	
-	domChange: function()
-	{
-		for (var module in changes)
-		{
-			changes[module].change();
-		}
-	},
-	
 	getId: function(string)
 	{
 		return string.match(/id=([0-9]+)/)[1];

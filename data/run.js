@@ -76,8 +76,9 @@ function runFP()
 	var target = FP.isFid() ? document.getElementById('aspnetForm') : document.getElementsByTagName('body')[0];
 	
 	var observer = new MutationObserver(function() {
-		// run changes
-		FP.domChange();
+		for (var module in changes) {
+			changes[module].change();
+		}
 	});
 	
 	observer.observe(target, {
