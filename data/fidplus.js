@@ -94,22 +94,12 @@ var FP =
 		}
 	},
 	
-	domChange: function(event)
+	domChange: function()
 	{
-		var	
-			doc = event.target.ownerDocument,
-			content = FP.isFid() ? doc.getElementById('aspnetForm') : doc.getElementsByTagName('body')[0];
-		
-		// Remove the event listener
-		content.removeEventListener('DOMSubtreeModified', FP.domChange, false);
-		
 		for (var module in changes)
 		{
 			changes[module].change();
 		}
-		
-		// Re-add the event listener
-		content.addEventListener('DOMSubtreeModified', FP.domChange, false);
 	},
 	
 	getId: function(string)
@@ -188,7 +178,7 @@ var FP =
 		
 		if (FP.Browser == 'chrome')
 		{
-			chrome.extension.sendRequest(data, callback);
+			chrome.runtime.sendMessage(data, callback);
 		}
 		else
 		{

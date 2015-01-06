@@ -120,7 +120,7 @@ chrome.pageAction.onClicked.addListener(function(tab)
 	FPPrefs.init();
 });
 
-chrome.extension.onRequest.addListener(function(request, sender, sendResponse)
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse)
 {
 	// Request made, so we know we're on a fid page. Show fidplus icon
 	if (FPPrefs.getPref('fidplusEnabled'))

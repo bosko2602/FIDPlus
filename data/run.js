@@ -73,15 +73,17 @@ function runFP()
 		}
 	});
 	
-	// Listen for DOM changes
-	if (FP.isFid())
-	{
-		document.getElementById('aspnetForm').addEventListener('DOMSubtreeModified', FP.domChange, false);
-	}
-	else
-	{
-		document.getElementsByTagName('body')[0].addEventListener('DOMSubtreeModified', FP.domChange, false);
-	}
+	var target = FP.isFid() ? document.getElementById('aspnetForm') : document.getElementsByTagName('body')[0];
+	
+	var observer = new MutationObserver(function() {
+		// run changes
+		FP.domChange();
+	});
+	
+	observer.observe(target, {
+		childList: true,
+		subtree: true
+	});
 }
 
 function siteWait()
@@ -123,7 +125,7 @@ function chatNotify(e)
 	{
 		if (FP.Browser == 'chrome')
 		{
-			chrome.extension.sendRequest({type: 'flashtitle'}, function(response){});
+			chrome.runtime.sendMessage({type: 'flashtitle'}, function(response){});
 		}
 		else
 		{

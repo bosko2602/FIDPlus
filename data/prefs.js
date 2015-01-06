@@ -6,31 +6,16 @@ var FPPrefs =
 	{
 		this.prefs = {};
 		
-		if (FP.Browser == 'chrome')
+		if (FP.Browser == 'chrome' && FP.chromeContext() == 'background')
 		{
-			if (FP.chromeContext() == 'background')
-			{
-				this.load(localStorage);
-			}
-			else
-			{
-				chrome.extension.sendRequest({type: 'getPrefs'}, function(response)
-				{
-					FPPrefs.load(response.prefs);
-				});
-			}
+			this.load(localStorage);
 		}
 		else
 		{
-			self.on('message', function(message)
+			FP.sendMessage({type: 'getPrefs'}, function (response)
 			{
-				if (message.type == 'loadPrefs')
-				{
-					FPPrefs.load(message.prefs);
-				}
+				FPPrefs.load(response.prefs);
 			});
-			
-			self.postMessage('loadPrefs');
 		}
 	},
 	
@@ -87,14 +72,7 @@ var FPPrefs =
 	
 	save: function()
 	{
-		if (FP.Browser == 'chrome')
-		{
-			chrome.extension.sendRequest({type: 'setPrefs', prefs: this.prefs});
-		}
-		else
-		{
-			self.postMessage({type: 'setPrefs', prefs: this.prefs});
-		}
+		FP.sendMessage({type: 'setPrefs', prefs: this.prefs});
 	},
 	
 	setPref: function(pref, value)
