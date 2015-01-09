@@ -13,5 +13,11 @@ FP.registerStyle('team_training_warning', ' \
 		font-size: 13px; \
 		//margin-bottom: 15px; \
 	} \
+	\
+	#M_C_popupAttribute_popup_Div1 .warning-box \
+	{ \
+		margin-bottom: 10px; \
+		width: 400px; \
+	} \
 \
 ');
