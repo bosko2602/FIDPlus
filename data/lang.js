@@ -26,7 +26,7 @@
 	
 	get: function(text)
 	{
-		if (typeof this.vars[this.lang][text] == 'undefined')
+		if (!this.vars[this.lang] || !this.vars[this.lang][text])
 		{
 			return this.vars.English[text];
 		}
