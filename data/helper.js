@@ -305,7 +305,7 @@ FP.Helper =
 		texts[FPLang.get('Very Good')]		= 83.5;
 		texts[FPLang.get('Superb')]			= 88.5;
 		texts[FPLang.get('Fantastic')]		= 93.5;
-		texts[FPLang.get('Star Quality')]	= 98;
+		texts[FPLang.get('Star Quality')]	= 100;
 		
 		return texts[text];
 	}
