@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Swedish', 'Svenska',
 {
+	'dateFormat': 'YYYY/M/D HH:mm',
+	
 	'gk_detection': 'MV',
 	
 	'Disastrous':			'Bedrövlig',

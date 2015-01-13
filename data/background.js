@@ -29,12 +29,9 @@ function createInterval(i, info)
 	if (info.date != '')
 	{
 		var now		= new Date(),
-			parts 	= info.date.split(' '),
-			date	= parts[0].split('.'),
-			time	= parts[1].split(':'),
-			ttdate	= new Date(date[2], date[1] - 1, date[0], time[0], time[1], 0);
+			ttdate	= new Date(info.date);
 		
-		if ((typeof lastTTs[i] == 'undefined' || lastTTs[i] < ttdate.getTime()) && ttdate.toDateString() == now.toDateString())
+		if ((typeof lastTTs[i] == 'undefined' || lastTTs[i] <= ttdate.getTime()) && ttdate.toDateString() == now.toDateString())
 		{
 			console.log('setting interval ' + i + ' for ' + info.name);
 			

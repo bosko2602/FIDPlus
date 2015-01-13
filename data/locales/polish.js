@@ -1,5 +1,7 @@
 ﻿FPLang.addLang('Polish', '',
 {
+	'dateFormat': 'YYYY/M/D HH:mm',
+	
 	'gk_detection': 'BR',
 	
 	'Disastrous':			'Fatalny',

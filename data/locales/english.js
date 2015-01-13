@@ -1,6 +1,8 @@
 ﻿// Default English language
 FPLang.addLang('English', 'English',
 {
+	'dateFormat': 'DD/MM/YYYY HH:mm',
+	
 	'age': 'Age',
 	'avatar': 'Avatar',
 	'bookmarks_add': 'Enter a name for the bookmark:',
@@ -260,6 +262,9 @@ FPLang.addLang('English', 'English',
 	
 	'options_module_teamTrainingWarning_heading': 'Team Training Warning',
 	'options_module_teamTrainingWarning_desc': 'Displays a warning on the individual training page if it is the day of your team\'s team training.',
+	
+	'options_module_trainingStatus_heading': 'Character Training Status',
+	'options_module_trainingStatus_desc': 'Indicates on the character selection dropdown whether the character has trained or not each day.',
 	
 	'options_main_heading': 'Main Settings',
 	'options_main_enable_heading': 'Enable FidPlus',

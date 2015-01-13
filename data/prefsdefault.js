@@ -6,6 +6,7 @@ FPPrefs.defaultPrefs =
 	lang:				'',
 	recentChars:		[],
 	teamTrainingDate: 	{},
+	lastTrained:		{},
 	
 	module_attributeAnalyser: {
 		enabled: true
@@ -127,6 +128,10 @@ FPPrefs.defaultPrefs =
 	},
 	
 	module_teamTrainingWarning: {
+		enabled: true
+	},
+	
+	module_trainingStatus: {
 		enabled: true
 	},
 	

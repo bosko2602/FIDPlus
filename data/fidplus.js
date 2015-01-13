@@ -126,6 +126,19 @@ var FP =
 		return this.pathname == this.fidPages[page];
 	},
 	
+	isCharacterPage: function() {
+		return this.isPage([
+			'playerOwnAwards',
+			'playerOwnContracts',
+			'playerOwnNews',
+			'playerOwnPicture',
+			'playerOwnSkills',
+			'playerOwnStats',
+			'playerOwnSummary',
+			'playerOwnTraining'
+		]);
+	},
+	
 	isOwnComp: function()
 	{
 		return this.isPage(['compOwnAwards', 'compOwnFixtures', 'compOwnPress', 'compOwnTable']);
@@ -137,6 +150,10 @@ var FP =
 		{
 			console.log(message);
 		}
+	},
+	
+	parseDate: function(dateString) {
+		return moment(dateString, FPLang.get('dateFormat'));
 	},
 	
 	playSound: function(sound)

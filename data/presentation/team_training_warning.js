@@ -5,18 +5,16 @@ FP.Module.teamTrainingWarning =
 	Pages: ['playerOwnSummary', 'playerOwnTraining'],
 	Css: ['team_training_warning'],
 	
-	init: function() {
-		var date = new Date,
-			tt = $('.teamTrainingDateLabel').text().split('.');
+	run: function() {
+		var now = moment(),
+			tt = FP.parseDate($('.teamTrainingDateLabel').text());
 		
-		this.ttDay = parseInt(tt[0]) == date.getDate() && parseInt(tt[1]) == date.getMonth() + 1;
+		this.ttDay = tt.isSame(now, 'day');
 		
 		this.$warning = $('<div>')
 			.attr('class', 'warning-box')
 			.text(FPLang.get('team_training_warning'));
-	},
-	
-	run: function() {
+		
 		if (this.ttDay) {
 			$('div#M_C_headerPanel')
 				.prepend('<div style="clear: both; height: 15px"></div>')

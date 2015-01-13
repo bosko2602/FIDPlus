@@ -32,8 +32,10 @@
 			"data/data/contributors.js",
 			"data/data/league_forums.js",
 			"data/data/leagues.js",
-			"data/library/domwindow.js",
 			"data/library/cookie.js",
+			"data/library/domwindow.js",
+			"data/library/moment.min.js",
+			"data/locales/chinese.js",
 			"data/locales/dutch.js",
 			"data/locales/english.js",
 			"data/locales/finnish.js",
@@ -66,6 +68,7 @@
 			"data/presentation/player_skill_titles.js",
 			"data/presentation/skill_colours.js",
 			"data/presentation/team_training_warning.js",
+			"data/presentation/training_status.js",
 			"data/tweaks/attribute_analyser.js",
 			"data/tweaks/chat_alert.js",
 			"data/tweaks/league_forum.js",
@@ -93,6 +96,7 @@
 			"data/resources/css/skill_descriptions.js",
 			"data/resources/css/team_popup_links.js",
 			"data/resources/css/team_training_warning.js",
+			"data/resources/css/training_status.js",
 			"data/run.js"
 		],
 		"matches": [

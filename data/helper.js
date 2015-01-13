@@ -6,6 +6,12 @@ FP.Helper =
 	
 	run: function(){},
 	
+	currentCharId: function() {
+		var $char = $('.character_selector_clickablediv .character_selector_selectedCharacter');
+		
+		return $char.attr('href').match(/sacId=([\d]+)/)[1]
+	},
+	
 	forumLink: function(forum)
 	{
 		return 'http://forum.footballidentity.com/default.aspx?g=topics&f=' + forum;
