@@ -27,7 +27,7 @@ FP.Module.trainingStatus =
 			$character.find('.characterSelector_dropdown').remove();
 			
 			var $status = $('<div class="training-status"></div>');
-			$character.find('.character_selector_characterInfo').prepend($status);
+			$character.find('.character_selector_characterInfo').after($status);
 			
 			if (self.lastTrained[id]) {
 				self.lastTrained[id] = new Date(self.lastTrained[id]);

@@ -4,9 +4,9 @@ FP.registerStyle('training_status', ' \
 	{ \
 		background: #FC3030; \
 		border-radius: 15px; \
-		float: right; \
+		display: inline-block; \
 		height: 15px; \
-		margin-top: 6px; \
+		vertical-align: middle; \
 		width: 15px; \
 	} \
 	\
