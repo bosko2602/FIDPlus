@@ -15,7 +15,7 @@
 
 var FP =
 {
-	Version: '1.1.12',
+	Version: '1.1.13',
 	Data: {},
 	Module: {},
 	querystring: [],

@@ -1,7 +1,7 @@
 ﻿{
 	"manifest_version": 2,
 	"name": "FIDPlus",
-	"version": "1.1.12",
+	"version": "1.1.13",
 	"description": "Presentational and functional enhancements for the footballidentity site and forum.",
 	"update_url": "http://clients2.google.com/service/update2/crx",
 	"icons":
