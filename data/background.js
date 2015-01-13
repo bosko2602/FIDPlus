@@ -7,6 +7,7 @@ FPPrefs.init();
 /** Team training intervals **/
 var intervals = {};
 var lastTTs = {};
+var noop = function(){};
 
 if (FPPrefs.moduleEnabled('teamTrainingNotification'))
 {
@@ -48,11 +49,14 @@ function createInterval(i, info)
 				{
 					console.log('show notification for ' + i);
 					
-					webkitNotifications.createNotification(
-						'data/resources/images/icon_48.png',
-						'FID Team Training',
-						'It is team training time for ' + info.name
-					).show();
+					var options = {
+						type: 'basic',
+						iconUrl: 'data/resources/images/icon_48.png',
+						title: 'FID Team Training',
+						message: 'It is team training time for ' + info.name
+					};
+					
+					chrome.notifications.create('', options, noop);
 					
 					clearInterval(intervals[i]);
 					delete intervals[i];
