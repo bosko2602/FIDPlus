@@ -12,7 +12,8 @@ FP.Module.trainingStatus =
 	
 	run: function() {
 		var self = this,
-			$characters = $('.character_selector_clickablediv > div:not(#charaterList)');
+			$dropDown = $('.character_selector_clickablediv'),
+			$characters = $dropDown.find('.character_selector_selectedCharacter, .characterSelector_ListItem:not(.chracterSelector_AddSlotItem)');
 		
 		var today = new Date();
 		today.setHours(0, 0, 0);
@@ -22,7 +23,12 @@ FP.Module.trainingStatus =
 		
 		$characters.each(function (i, character) {
 			var $character = $(character),
-				id = $character.attr('href').match(/sacId=([\d]+)/)[1];
+				attr = $character.attr($character.hasClass('character_selector_selectedCharacter') ? 'href' : 'onclick'),
+				id = attr.match(/sacId=([\d]+)/)[1];
+			
+			if (attr.indexOf('Manager') > -1) {
+				return;
+			}
 			
 			$character.find('.characterSelector_dropdown').remove();
 			
