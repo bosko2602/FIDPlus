@@ -44,13 +44,6 @@ FPPrefs.defaultPrefs =
 		enabled: true
 	},
 	
-	module_leagueBadges: {
-		enabled: true,
-		options: {
-			ownColumn: true
-		}
-	},
-	
 	module_limitTeamNames: {
 		enabled: true
 	},
@@ -97,10 +90,6 @@ FPPrefs.defaultPrefs =
 	
 	module_qprredsJoke: {
 		enabled: false
-	},
-	
-	module_skillColours: {
-		enabled: true
 	},
 	
 	module_teamCountPlayers: {
