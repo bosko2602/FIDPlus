@@ -13,15 +13,7 @@ FP.Module.attributeAnalyser =
 		
 		$div.append($canvas);
 		
-		var el = '.baseColumnRightSubcolumn';
-		
-		if (FP.pathname == FP.fidPages['playerOtherSummary'])
-		{
-			el = el + 'Narrower';
-			$div.width('262px');
-		}
-		
-		el = $(el + ':first');
+		var $el = $('.baseColumnRightSubcolumn:first');
 		
 		// Move favourite teams & chars?
 		var favourites = $('.favouriteCharTeamTriplet');
@@ -34,14 +26,14 @@ FP.Module.attributeAnalyser =
 			
 			holder.append(t1.css({'float': 'left', 'margin-right': '34px'})).append(t2.css('float', 'left'));
 			
-			el.after(holder);
+			$el.after(holder);
 		}
 		
 		// Get player skills
 		var skills = FP.Helper.getSkills(true);
 		
 		// Add the canvas
-		el.append($div);
+		$el.append($div);
 		
 		var keeper = FP.Helper.isKeeper();
 		

@@ -6,8 +6,14 @@ FP.Helper =
 	
 	run: function(){},
 	
-	currentCharId: function() {
+	currentCharId: function()
+	{
 		var $char = $('.character_selector_clickablediv .character_selector_selectedCharacter');
+		
+		if (!$char.length || !$char.attr('href'))
+		{
+			return 0;
+		}
 		
 		return $char.attr('href').match(/sacId=([\d]+)/)[1]
 	},
@@ -85,11 +91,11 @@ FP.Helper =
 		}
 		else
 		{
-			$('table#M_C_gridViewAttributeLevels_DXMainTable tr[id *= "M_C_gridViewAttributeLevels_DXDataRow"]').each(function()
+			$('table#M_C_gridViewAttributeLevels tr:not(.groupRow)').each(function()
 			{
 				var children = $(this).children();
 				
-				var text = children.eq(1).text();
+				var text = children.first().text();
 				var value = children.last().text();
 				
 				if (isNaN(value.replace(',', '.')))
@@ -118,7 +124,7 @@ FP.Helper =
 				}
 			});
 		}
-		
+				
 		return skills;
 	},
 	
