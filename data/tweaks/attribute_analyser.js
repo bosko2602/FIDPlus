@@ -1,3 +1,5 @@
+'use strict';
+
 // Thanks to Football Manager for the inspiration for this :)
 FP.Module.attributeAnalyser =
 {
@@ -9,33 +11,43 @@ FP.Module.attributeAnalyser =
 	run: function()
 	{
 		var $div = $('<div>').addClass('attribute-graph-holder'),
-			$canvas = $('<canvas id="profile"></canvas>');
+			$canvas = $('<canvas id="profile"></canvas>'),
+			selector = '.baseColumnRightSubcolumn',
+			$el, favourites, skills, keeper;
 		
-		$div.append($canvas);
+		if (FP.isPage('playerOtherSummary'))
+		{
+			selector += 'Narrower';
+			$div.width('262px');
+		}
 		
-		var $el = $('.baseColumnRightSubcolumn:first');
+		$el = $(selector + ':first');
 		
 		// Move favourite teams & chars?
-		var favourites = $('.favouriteCharTeamTriplet');
+		favourites = $('.favouriteCharTeamTriplet');
 		
 		if (favourites.length == 2)
 		{
-			var holder = $('<div>').css('clear', 'both');
-			var t1 = favourites.eq(0);
-			var t2 = favourites.eq(1);
+			let holder = $('<div>').css('clear', 'both');
+			let t1 = favourites.eq(0);
+			let t2 = favourites.eq(1);
 			
-			holder.append(t1.css({'float': 'left', 'margin-right': '34px'})).append(t2.css('float', 'left'));
+			holder.append(
+				t1.css({'float': 'left', 'margin-right': '34px'})
+			).append(
+				t2.css('float', 'left')
+			);
 			
 			$el.after(holder);
 		}
 		
 		// Get player skills
-		var skills = FP.Helper.getSkills(true);
+		skills = FP.Helper.getSkills(true);
 		
 		// Add the canvas
-		$el.append($div);
+		$el.append($div.append($canvas));
 		
-		var keeper = FP.Helper.isKeeper();
+		keeper = FP.Helper.isKeeper();
 		
 		if (keeper)
 		{
@@ -61,9 +73,16 @@ FP.Module.attributeAnalyser =
 	
 	draw: function(canvasObj, skills, keeper, colour)
 	{
+		var categories = [],
+			angle = 0,
+			xy = [],
+			first = [],
+			next = [],
+			canvas, ctx;
+		
 		if (keeper)
 		{
-			var categories = [
+			categories = [
 				skills['Keep. Pos.'] / 2,
 				(skills['Agility'] + skills['Stamina'] + skills['Strength']) / 6,
 				(skills['Accel.'] + skills['Speed']) / 4,
@@ -77,7 +96,7 @@ FP.Module.attributeAnalyser =
 		else
 		{
 			// Put into 1 of 8 categories, average out and scale down to 0-50
-			var categories = [
+			categories = [
 				(skills['Blocking'] + skills['Tackling'] + skills['Def. Pos.']) / 6,
 				(skills['Agility'] + skills['Stamina'] + skills['Strength']) / 6,
 				(skills['Accel.'] + skills['Speed']) / 4,
@@ -89,7 +108,7 @@ FP.Module.attributeAnalyser =
 			];
 		}
 		
-		var canvas = canvasObj.get(0);
+		canvas = canvasObj.get(0);
 		
 		if (canvas.width != canvasObj.width())
 		{
@@ -97,14 +116,8 @@ FP.Module.attributeAnalyser =
 			canvas.height = canvasObj.height();
 		}
 		
-		var ctx = canvas.getContext('2d');
+		ctx = canvas.getContext('2d');
 		ctx.beginPath();
-		
-		// Starting angle
-		var angle = 0;
-		var xy = [];
-		var first = [];
-		var next = [];
 		
 		// Loop through each category
 		$.each(categories, function(key, val)
@@ -119,17 +132,16 @@ FP.Module.attributeAnalyser =
 			{
 				// Join back to start
 				ctx.lineTo(first[0], first[1]);
+				return;
 			}
-			else
-			{
-				angle += 45;
-				
-				next = FP.Module.attributeAnalyser.calc(angle, categories[key + 1]);
-				
-				// Draw a line to the next point
-				ctx.lineTo(next[0], next[1]);
-				ctx.moveTo(next[0], next[1]);
-			}
+			
+			angle += 45;
+			
+			next = FP.Module.attributeAnalyser.calc(angle, categories[key + 1]);
+			
+			// Draw a line to the next point
+			ctx.lineTo(next[0], next[1]);
+			ctx.moveTo(next[0], next[1]);
 		});
 		
 		if (typeof colour != 'undefined')
