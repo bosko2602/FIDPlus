@@ -14,15 +14,13 @@ FP.Module.leagueTransfers =
 		
 		if (FP.isOwnComp())
 		{
-			var
-				page = 'compOwnTable',
+			var page = 'compOwnTable',
 				params = {transfers: true},
 				press = FP.fidPages['compOwnPress'];
 		}
 		else
 		{
-			var
-				page = 'compOtherTable',
+			var page = 'compOtherTable',
 				params = {id: this.leagueid, transfers: true},
 				press = FP.fidPages['compOtherPress'] + '?id=' + this.leagueid;
 		}
@@ -63,57 +61,45 @@ FP.Module.leagueTransfers =
 		$tabs.last().addClass('thirdMenu_tabItem_selected');
 		
 		// Get all the teams and their ids
-		teams = [], teamsList = {};
+		var teams = [], teamsList = {};
 		
-		// Account for extra column
-		var child = FPPrefs.moduleOptionEnabled(FP.Module.leagueBadges, 'ownColumn') ? 3 : 2;
-		
-		$('#M_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(' + child + ') a').each(function()
+		$('#M_C_LeagueTable_leagueStatisticsFull tr:not(.header2) td:nth-child(3) a').each(function()
 		{
-			tid = $(this).attr('href').match(/id=([0-9]+)/)[1];
-			tname = $(this).text();
+			var $this = $(this),
+				tid = $this.attr('href').match(/id=([0-9]+)/)[1],
+				tname = $this.text();
 			
 			teams.push({id: tid, name: tname});
-			
 			teamsList[tid] = tname;
 		});
 		
 		// Erase league table
 		$('#M_basicContent #M_C_LeagueTable_Div1').remove();
-		holder = $('#M_basicContent .baseColumn');
+		var holder = $('#M_basicContent .baseColumn');
 		holder.empty();
 		holder.width('100%');
 		
 		// Go to each team and get their transfers
-		transfers = [], children = '', params = '';
+		var transfers = [], children = '', params = '', $progress;
 		
 		function getTransfers(index)
 		{
-			teamid = teams[index].id;
+			var teamid = teams[index].id,
+				params = {id: teamid, cn: 1, tr: 0};
 			
-			params = {id: teamid, cn: 1, tr: 0};
-			
-			// Show progress
-			progress = holder.find('span#transferProgress');
-			
-			if (progress.length == 0)
+			if (!$progress)
 			{
-				holder.append(
-					$('<span id="transferProgress">').text(FPLang.get('league_transfers_get').format(index + 1))
-				);
+				$progress = $('<span>');
+				holder.append($progress);
 			}
-			else
-			{
-				progress.html($('<span id="transferProgress">').text(FPLang.get('league_transfers_get').format(index + 1)));
-			}
+			
+			$progress.text(FPLang.get('league_transfers_get').format(index + 1, teams.length));
 			
 			$.get(FP.Helper.fidLink(FP.fidPages['teamOtherContracts'], params), function(doc)
 			{
 				if ($('h2#M_C_U70TeamInfoH2', doc).length != 0)
 				{
-					params = {cn: 1, tr: 0};
-					
-					$.get(FP.Helper.fidLink(FP.fidPages['teamOwnContracts'], params), function(doc)
+					$.get(FP.Helper.fidLink(FP.fidPages['teamOwnContracts'], {cn: 1, tr: 0}), function(doc)
 					{
 						doTransfers(doc, index);
 					});
@@ -131,11 +117,8 @@ FP.Module.leagueTransfers =
 			
 			$('tr[id *= M_C_Transfers_callbackPanelU76_gridViewTransfersU76_DXDataRow]', doc).each(function()
 			{
-				children = $(this).children();
-				
-				var
-					date		= children.eq(2).text().split(' ')[0],
-					dateParts	= date.slice(0, -1).split('.'),
+				var children	= $(this).children(),
+					date		= children.eq(2).text(),
 					link		= children.eq(5).find('a'),
 					to			= children.eq(8).find('a'),
 					toId		= to.attr('href').match(/id=([0-9]+)/)[1],
@@ -148,8 +131,8 @@ FP.Module.leagueTransfers =
 				if (!(typeof teamsList[toId] != 'undefined' && typeof teamsList[fromId] != 'undefined' && fromName == thisTeam))
 				{
 					transfers.push({
-						dateParsed:		dateParts.join('.'),
-						timeStamp:		new Date(dateParts[2], dateParts[1] - 1, dateParts[2]),
+						date:			date,
+						dateParsed:		FP.parseDate(date),
 						playerId:		link.attr('href').match(/id=([0-9]+)/)[1],
 						playerLink:		link.attr('href'),
 						playerName:		link.text(),
@@ -168,88 +151,90 @@ FP.Module.leagueTransfers =
 						fromLeagueLink:	fromLeague.attr('href'),
 						fromLeagueName:	fromLeague.text()
 					});
+					
+					debugger;
 				}
 			});
 			
 			if (typeof teams[index + 1] != 'undefined')
 			{
 				getTransfers(index + 1);
+				return;
 			}
-			else
+			
+			var container = $('<table>').attr('class', 'statisticsGrid2').width('100%');
+			
+			container.append(
+				'<tr id="transferHeadings">'
+					+ '<td class="header">' + FPLang.get('league_transfers_h1') + '</td>'
+					+ '<td class="header">' + FPLang.get('league_transfers_h2') + '</td>'
+					+ '<td class="header">' + FPLang.get('league_transfers_h3') + '</td>'
+					+ '<td class="header">' + FPLang.get('league_transfers_h4') + '</td>'
+					//+ '<td class="header">' + FPLang.get('league_transfers_h5') + '</td>'
+					+ '<td class="header">' + FPLang.get('league_transfers_h6') + '</td>'
+					//+ '<td class="header">' + FPLang.get('league_transfers_h5') + '</td>' +
+				+ '</tr>'
+			);
+			
+			container.find('tr#transferHeadings td').css('padding', '4px 0px');
+			
+			// Sort them newest to oldest
+			transfers.sort(function(a, b)
 			{
-				container = $('<table>').attr('class', 'statisticsGrid2').width('100%');
+				return b.dateParsed.valueOf() - a.dateParsed.valueOf();
+			});
+			
+			var max = 50,
+				current = 0,
+				bgcolor = '',
+				t;
+			
+			for (var i in transfers)
+			{
+				bgcolor = bgcolor == '#F7F7F7' ? '#FFFFFF' : '#F7F7F7';
+				
+				t = transfers[i];
 				
 				container.append(
-					'<tr id="transferHeadings">'
-						+ '<td class="header">' + FPLang.get('league_transfers_h1') + '</td>'
-						+ '<td class="header">' + FPLang.get('league_transfers_h2') + '</td>'
-						+ '<td class="header">' + FPLang.get('league_transfers_h3') + '</td>'
-						+ '<td class="header">' + FPLang.get('league_transfers_h4') + '</td>'
-						//+ '<td class="header">' + FPLang.get('league_transfers_h5') + '</td>'
-						+ '<td class="header">' + FPLang.get('league_transfers_h6') + '</td>'
-						//+ '<td class="header">' + FPLang.get('league_transfers_h5') + '</td>' +
-					+ '</tr>'
+					$('<tr class="transferRow">').css('background-color', bgcolor).append(
+						$('<td>').text(t.date)
+					).append(
+						$('<td>').append(
+							$('<a>').attr('href', t.playerLink).text(t.playerName)
+						)
+					).append(
+						$('<td>').text(t.amount)
+					).append(
+						$('<td>').append(
+							$('<a>').attr('href', t.toLink).text(t.toName)
+						)
+					).append(
+						$('<td>').append(
+							$('<a>').attr('href', t.fromLink).text(t.fromName)
+						)
+					)
 				);
 				
-				container.find('tr#transferHeadings td').css('padding', '4px 0px');
+				$('tr.transferRow td', container).css('padding', '6px 0px');
 				
-				// Sort them newest to oldest
-				transfers.sort(function(a, b)
+				// If the max limit has been reached, stop
+				if (++current == max)
 				{
-					return b.timeStamp - a.timeStamp;
-				});
-				
-				var max = 50,
-					current = 0,
-					bgcolor = '';
-				
-				for (var i in transfers)
-				{
-					bgcolor = bgcolor == '#F7F7F7' ? '#FFFFFF' : '#F7F7F7';
+					// Remove progress
+					$progress.remove();
 					
-					t = transfers[i];
+					holder.append($('<h2>').html(FPLang.get('league_transfers') + '<br /><br />'));
+					holder.append(container);
 					
-					container.append(
-						$('<tr class="transferRow">').css('background-color', bgcolor).append(
-							$('<td>').text(t.dateParsed)
-						).append(
-							$('<td>').append(
-								$('<a>').attr('href', t.playerLink).text(t.playerName)
-							)
-						).append(
-							$('<td>').text(t.amount)
-						).append(
-							$('<td>').append(
-								$('<a>').attr('href', t.toLink).text(t.toName)
-							)
-						).append(
-							$('<td>').append(
-								$('<a>').attr('href', t.fromLink).text(t.fromName)
-							)
-						)
-					);
-					
-					$('tr.transferRow td', container).css('padding', '6px 0px');
-					
-					// If the max limit has been reached, stop
-					if (++current == max)
-					{
-						// Remove progress
-						progress.remove();
-						
-						holder.append($('<h2>').html(FPLang.get('league_transfers') + '<br /><br />'));
-						holder.append(container);
-						
-						return false;
-					}
+					return false;
 				}
-				
-				// Remove progress
-				progress.remove();
-				
-				holder.append($('<h2>').text(FPLang.get('league_transfers')).append('<br /><br />'));
-				holder.append(container);
 			}
+			
+			// Remove progress
+			$progress.remove();
+			
+			holder.append($('<h2>').text(FPLang.get('league_transfers')).append('<br /><br />'));
+			holder.append(container);
 		}
 		
 		getTransfers(0);
